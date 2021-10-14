@@ -1,7 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import * as hexDomain from '../data/hexadecimal.domain';
+import { Hexadecimal } from '../models/hexadecimal.model';
 import { RgbType } from '../models/rgb-type.model';
+import { hexadecimalReducer } from '../reducers/hex.reducer';
 
 const HEX_STANDARD_COLOR_LENGTH: number = 6; 
 const HEX_TRANSPARENT_COLOR_LENGTH: number = 8;
@@ -52,5 +54,52 @@ export class HexService {
     return input.trim().length === hexDomain.HEX_TRANSPARENT_COLOR_LENGTH;
   }
 
+  getHexadecimalNumberValues = (input: string): number[] => {
+    let result: number[] = [];
+
+    //Convert Hex string to Array
+    let array = Array.from(input);
+
+    let countdownSteps: number = this.getCountdownSteps(array);
+
+    for(var i = 0; i < array.length; i++) {
+      let hex = this.getHexadecimal(array[i]);
+
+      if (hex) {
+        result.push(this.hexBySixteenCalc(hex, countdownSteps));
+        countdownSteps--;
+      }
+    }
+    return result;
+  }
+
+  getCountdownSteps = (array: string[]): number => 
+    array && array.length > 0 ? array.length - 1 : 0;
+
+  getHexadecimal = (symbol: string): Hexadecimal | undefined => 
+    hexDomain.hexidecimals.some(x => x.symbol === symbol.toUpperCase()) ?
+    hexDomain.hexidecimals.find(x => x.symbol === symbol.toUpperCase()) :
+    undefined;
+
+  hexBySixteenCalc = (hexadecimal: Hexadecimal, multiplier: number) =>
+    multiplier > 0 ? 
+      (hexadecimal.value * (hexDomain.HEX_MULTIPLIER * multiplier)) :
+      hexadecimal.value;
   
+  rgbSplitter = (input: string): string[] => {
+    var chunks: string[] = [];
+    
+    for(var i = 0; i < input.length; i += hexDomain.HEX_TO_RGB_SPLIT_SIZE) {
+      chunks.push(input.substring(i, i + hexDomain.HEX_TO_RGB_SPLIT_SIZE)); 
+    }
+    return chunks;
+  };
+
+  getRgbValues = (input: string): number[][] => {
+    let rgbChunks = this.rgbSplitter(input);
+
+    return rgbChunks.map(chunk => { 
+      return this.getHexadecimalNumberValues(chunk)
+    });
+  }
 }

@@ -19,7 +19,7 @@ describe('HexService', () => {
     expect(service).toBeTruthy();
   });
 
-  // //#region Rgb tests
+  //#region Rgb tests
   it('6 characters Rgb type returned', () => {
     expect(service.getRgbType('FFFFFF')).toEqual(RgbType.rgb);
   });
@@ -47,7 +47,7 @@ describe('HexService', () => {
   });
   //#endregion
 
-  // //#region hash tests
+  //#region hash tests
   it('#FFFFFF starts with #', () => {
     expect(service.startsWithHash('#FFFFFF')).toBeTruthy();
   });
