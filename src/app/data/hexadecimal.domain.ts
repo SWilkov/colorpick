@@ -21,6 +21,8 @@ export const hexidecimals: Hexadecimal[] = [
 
 export const HEX_STANDARD_COLOR_LENGTH: number = 6;
 export const HEX_TRANSPARENT_COLOR_LENGTH: number = 8; //with transparency
+export const HEX_TO_RGB_SPLIT_SIZE = 2; //when converting to rgb(a) hexadecimal is split into groups of 2 characters
+export const HEX_MULTIPLIER = 16; //Hexadecimal is based on multiples of 16
 
 export const validHexCharacters: string[] = [
   'A', 'B', 'C', 'D', 'E', 'F', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9'
