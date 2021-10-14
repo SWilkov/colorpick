@@ -73,6 +73,8 @@ export class HexService {
     return result;
   }
 
+  //Hexadecimal value is created using power of 16 on a sliding scale 
+  //ie ABC = (16 squared) + (16 by 1) + (16 by 0)
   getCountdownSteps = (array: string[]): number => 
     array && array.length > 0 ? array.length - 1 : 0;
 
@@ -81,11 +83,11 @@ export class HexService {
     hexDomain.hexidecimals.find(x => x.symbol === symbol.toUpperCase()) :
     undefined;
 
-  hexBySixteenCalc = (hexadecimal: Hexadecimal, multiplier: number) =>
+  hexBySixteenCalc = (hexadecimal: Hexadecimal, multiplier: number) => 
     multiplier > 0 ? 
-      (hexadecimal.value * (hexDomain.HEX_MULTIPLIER * multiplier)) :
+      (hexadecimal.value * Math.pow(hexDomain.HEX_MULTIPLIER, multiplier)) :
       hexadecimal.value;
-  
+    
   rgbSplitter = (input: string): string[] => {
     var chunks: string[] = [];
     
