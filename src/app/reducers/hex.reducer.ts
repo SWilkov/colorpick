@@ -1,5 +1,5 @@
 
-import { createReducer, on } from '@ngrx/store';
+import { Action, createReducer, on } from '@ngrx/store';
 import * as hexActions from '../actions/hex.actions';
 
 export interface HexadecimalState {
@@ -41,4 +41,8 @@ const _hexReducer = createReducer(
       validating: false,
       error: payload
     }))
-)
+);
+
+export function hexadecimalReducer(state: HexadecimalState | undefined, action: Action) {
+  return _hexReducer(state, action);
+}

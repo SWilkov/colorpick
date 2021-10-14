@@ -12,13 +12,12 @@ import { RgbType } from '../models/rgb-type.model';
 export class HexEffects {
   constructor(private actions$: Actions,
     private hexService: HexService) {
-
   }
 
   validateHex$ = createEffect(() => this.actions$
     .pipe(
       ofType(hexActions.validateHex),
-      switchMap(({payload: input}) => this.hexService.removeHash(input)
+      switchMap(({payload: input}) => of(this.hexService.removeHash(input))
         .pipe(
           map((response) => {
             if (this.hexService.isStandardHexLength(response) || this.hexService.isTransparentLength(response)) {

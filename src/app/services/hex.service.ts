@@ -17,12 +17,12 @@ export class HexService {
     return input.trim().startsWith('#');
   }
 
-  removeHash(input: string): Observable<string> {
-    while(this.startsWithHash(input)) {
-      input.trim().substring(1, input.length)
-    }
+  removeHash(input: string): string {
+    let output = this.startsWithHash(input.trim()) ? 
+                    input.trim().substring(1, input.length).trim() :
+                    input.trim();
 
-    return of(input.trim());
+    return this.startsWithHash(output) ? this.removeHash(output) : output;
   }
   
   getRgbType(input: string): RgbType {
@@ -51,4 +51,6 @@ export class HexService {
   isTransparentLength(input: string): boolean {
     return input.trim().length === hexDomain.HEX_TRANSPARENT_COLOR_LENGTH;
   }
+
+  
 }
