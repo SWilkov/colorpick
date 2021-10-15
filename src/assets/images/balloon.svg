@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="93" height="120" viewBox="0 0 93 120">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #fb9005;
+      }
+
+      .cls-1, .cls-2 {
+        fill-rule: evenodd;
+      }
+
+      .cls-2 {
+        fill: #1e1f26;
+      }
+    </style>
+  </defs>
+  <path id="right_ballon" data-name="right ballon" class="cls-1" d="M46.28,5.5c17.011-.167,30.353,9.667,30.519,10C96.6,27.141,89.184,51.693,76.3,72a178.52,178.52,0,0,1-15.51,16A142.9,142.9,0,0,1,46.78,97S46.113,7.833,46.28,5.5Z"/>
+  <path id="left_balloon" data-name="left balloon" class="cls-1" d="M47.757,5.5c-17.1-.167-30.509,9.667-30.676,10-19.9,11.641-11.861,39.943.5,56.5-4.862-5.5,8.549,9.833,15.59,16a143.731,143.731,0,0,0,14.081,9S47.925,7.833,47.757,5.5Z"/>
+  <path id="joiner" class="cls-2" d="M38.6,92l8.063,1.5L54.727,92l-6.047,9.5H44.145Z"/>
+  <path id="strape1" class="cls-2" d="M43.641,101.5l-1.512,6,1.008,0.5,1.512-6.5H43.641Z"/>
+  <path id="strape2" class="cls-2" d="M49.184,101.5l1.512,6-1.008.5-1.512-6.5h1.008Z"/>
+  <path id="basket" class="cls-1" d="M41.625,108H51.2v7l-1.008,1H43.137l-1.008-1.5Z"/>
+  <path id="basket_rim" data-name="basket rim" class="cls-2" d="M41.121,106.5H51.7L51.2,108H41.625Z"/>
+</svg>

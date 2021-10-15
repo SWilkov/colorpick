@@ -1,1 +1,18 @@
 /* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body {
+  margin: 0;
+  font-family: europa, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 20px;
+  background: #fefefe;
+  color: #161618;
+}
+
+:root {
+  --nav-bar-height: 50px;
+  --footer-height: 100px;
+  --text-color: #333333;
+}
