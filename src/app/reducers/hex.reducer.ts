@@ -35,7 +35,8 @@ const _hexReducer = createReducer(
   on(hexActions.validateHex,
     (state, {payload}) => ({
       ...state,
-      validating: true
+      validating: true,
+      input: payload
     })),
   on(hexActions.validateHexSuccess,
     (state, {payload}) => ({
