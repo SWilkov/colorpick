@@ -1,7 +1,9 @@
 
 import { Action, createReducer, on } from '@ngrx/store';
 import * as hexActions from '../actions/hex.actions';
+import { Hexadecimal } from '../models/hexadecimal.model';
 import { RgbType } from '../models/rgb-type.model';
+import { Rgba } from '../models/rgba.model';
 
 export interface HexadecimalState {
   input: string;
@@ -17,7 +19,7 @@ export interface HexadecimalState {
 
 const initialState: HexadecimalState = {
   input: '',
-  rgbValue: [],
+  rgbValue: [167, 195, 12, 255],
   rgbType: RgbType.invalid,
   validatedHexValue: '',
   error: '',
@@ -89,5 +91,23 @@ export const getValidating = (state: HexadecimalState | undefined) => state?.val
 export const getValidated = (state: HexadecimalState | undefined) => state?.validated;
 
 export const getOriginalInput = (state: HexadecimalState | undefined) => state?.input;
-export const getRgbValue = (state: HexadecimalState | undefined) => state?.rgbValue;
+export const getRgbValue = (state: HexadecimalState) => state?.rgbValue;
 export const getRgbType = (state: HexadecimalState | undefined) => state?.rgbType;
+
+export const getRgba = (state: HexadecimalState): Rgba => {
+  if (state.rgbValue && state.rgbValue.length) {
+    return {
+      red: state.rgbValue[0],
+      green: state.rgbValue[1],
+      blue: state.rgbValue[2],
+      alpha: state.rgbValue.length === 4 ? state.rgbValue[3] : 255
+    };    
+  }
+
+  return { 
+    red: 255,
+    green: 255,
+    blue: 255,
+    alpha: 255
+  };
+};

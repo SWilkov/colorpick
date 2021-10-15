@@ -10,6 +10,8 @@ import { HexEffects } from './effects/hex.effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from 'src/environments/environment';
 import { metaReducers, reducers } from './reducers';
+import { ControlsModule } from './controls/controls.module';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -18,6 +20,8 @@ import { metaReducers, reducers } from './reducers';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    
+    ControlsModule,
     StoreModule.forRoot(reducers, {
       metaReducers: metaReducers
     }),

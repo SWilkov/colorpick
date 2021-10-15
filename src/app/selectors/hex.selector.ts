@@ -38,3 +38,8 @@ export const selectRgbValue = createSelector(
   getHexadecimalState,
   fromHex.getRgbValue
 );
+
+export const selectRgba = createSelector(
+  getHexadecimalState,
+  fromHex.getRgba
+);
