@@ -16,6 +16,11 @@
     height: 75vh;
   }
 
+  &__input-container {
+    display: flex;
+    justify-content: center;
+  }
+
   &__input {
     display: block;
     text-align: center;

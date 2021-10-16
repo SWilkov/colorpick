@@ -11,7 +11,12 @@
  }
 
 .minbtn {
-  max-width: 500px;
+  max-width: 600px;
+  display: grid;
+  grid-template-columns: 1fr 100px;
+  column-gap: 20px;
+  align-items: center;
+  justify-content: center;
   &__input {
     display: block;
     font-weight:300;

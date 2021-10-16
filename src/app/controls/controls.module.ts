@@ -5,6 +5,7 @@ import { FooterComponent } from './footer/footer.component';
 import { MinimalInputComponent } from './minimal-input/minimal-input.component';
 import { BalloonComponent } from './balloon/balloon.component';
 import { FormsModule } from '@angular/forms';
+import { ClearButtonComponent } from './clear-button/clear-button.component';
 
 
 
@@ -13,7 +14,8 @@ import { FormsModule } from '@angular/forms';
     NavBarComponent,
     FooterComponent,
     MinimalInputComponent,
-    BalloonComponent
+    BalloonComponent,
+    ClearButtonComponent
   ],
   imports: [
     CommonModule,
@@ -23,7 +25,8 @@ import { FormsModule } from '@angular/forms';
     NavBarComponent,
     FooterComponent,
     MinimalInputComponent,
-    BalloonComponent
+    BalloonComponent,
+    ClearButtonComponent
   ]
 })
 export class ControlsModule { }

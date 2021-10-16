@@ -53,7 +53,7 @@ export class AppComponent implements OnInit, OnDestroy {
   getFriendlyRgba(rgba: Rgba): string {
     return `rgba(${rgba.red}, ${rgba.green}, ${rgba.blue}, ${rgba.alpha})`;
   }
-
+  
   ngOnDestroy(): void {
     if (this.rgbaSubscription) {
       this.rgbaSubscription.unsubscribe();

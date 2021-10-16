@@ -1,5 +1,6 @@
 <div class="minbtn">
   <input #textInput type="text" class="minbtn__input" 
-    placeholder="{{placeholderText}}" [(ngModel)]="searchText" 
-    > 
+    placeholder="{{placeholderText}}" [(ngModel)]="searchText">
+  <cp-clear-button *ngIf="searchText" 
+      (clearEvent)="onClearText($event)"></cp-clear-button> 
 </div>

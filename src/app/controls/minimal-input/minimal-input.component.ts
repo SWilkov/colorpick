@@ -40,6 +40,11 @@ export class MinimalInputComponent implements OnInit, AfterViewInit, OnDestroy {
     }
   }  
 
+  onClearText(data: any): void {
+    this.searchText = '';
+    this.input.nativeElement.focus();
+  }
+
   ngOnDestroy(): void {
     if (this.keyupSubscription) {
       this.keyupSubscription.unsubscribe();
