@@ -1,0 +1,17 @@
+@import '../../mixins';
+
+.balloon {
+  &__size {
+    width: 93px;
+    height: 120px;
+  }
+}
+
+@include respond-below(babyshark) {
+  .balloon {
+    &__size {
+      width: 62px;
+      height: 80px;
+    }
+  }
+}

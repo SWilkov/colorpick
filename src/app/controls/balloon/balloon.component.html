@@ -1,6 +1,6 @@
 
 
-<svg xmlns="http://www.w3.org/2000/svg" width="93" height="120" viewBox="0 0 93 120"
+<svg xmlns="http://www.w3.org/2000/svg" class="balloon__size" viewBox="0 0 93 120"
   *ngIf="rgba$ | async as rgba">
   <defs>
     <style>
@@ -15,13 +15,17 @@
       .cls-2 {
         fill: #1e1f26;
       }
+
+      .basket {
+        fill: #3f3a3b;
+      }
     </style>
   </defs>
   <path id="ballonn" [ngStyle]="{ 'fill': getFriendlyRgba(rgba), 'fill-opacity': (opacity$ | async) }" d="M13,19C18,14.833,32,4.833,47,5S75.917,15.25,80,18c2.333,3.25,8.481,12.32,9,19,1.333,17.167-20.5,51.333-37,57-6.542,1.023-15-.333-11,1,4.833-.333-36.127-23.282-36-56C5.047,26.946,8,23.167,13,19Z"/>
   <path id="joiner" class="cls-2" d="M38.6,92l8.063,1.5L54.727,92l-6.047,9.5H44.145Z"/>
   <path id="strape1" class="cls-1" d="M43.641,101.5l-1.512,6,1.008,0.5,1.512-6.5H43.641Z"/>
   <path id="strape2" class="cls-2" d="M49.184,101.5l1.512,6-1.008.5-1.512-6.5h1.008Z"/>
-  <path id="basket" [ngStyle]="{ 'fill': getFriendlyRgba(rgba), 'fill-opacity': (opacity$ | async) }" d="M41.625,108H51.2v7l-1.008,1H43.137l-1.008-1.5Z"/>
+  <path id="basket" class="basket" d="M41.625,108H51.2v7l-1.008,1H43.137l-1.008-1.5Z"/>
   <path id="basket_rim" data-name="basket rim" class="cls-2" d="M41.121,106.5H51.7L51.2,108H41.625Z"/>
 </svg>
 

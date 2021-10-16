@@ -1,3 +1,5 @@
+@import '../../mixins';
+
 ::-ms-input-placeholder { /* Microsoft Edge */
   color: rgb(122, 123, 131);;
   opacity: 0.4;
@@ -17,8 +19,10 @@
   column-gap: 20px;
   align-items: center;
   justify-content: center;
+
   &__input {
     display: block;
+    text-align: center;
     font-weight:300;
     width: 100%;
     font-size: 4em;
@@ -39,8 +43,26 @@
 
     &:focus {
       border-bottom: 1px solid #ddd;
-    }
+    }    
+  }
+}
 
-    
-  }  
+@include respond-below(mummyshark) {
+  .minbtn {
+    max-width: 400px;
+
+    &__input {
+      font-size: 2em;
+    }
+  }
+}
+
+@include respond-below(mummyshark) {
+  .minbtn {
+    max-width: 400px;
+
+    &__input {
+      font-size: 1.5em;
+    }
+  }
 }

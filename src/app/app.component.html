@@ -10,8 +10,12 @@
       <input [value]="getFriendlyRgba(rgba)" class="app__input"
         [ngStyle]="{ 'opacity': (opacity$ | async), 'color': getFriendlyRgba(rgba) }">   
     </div>
-    <cp-balloon></cp-balloon>
-    
+
+    <div class="app__balloon" [@riseFall]="isRising ? 'rise' : 'fall'">
+      <a href="#" (click)="toggle()">
+        <cp-balloon></cp-balloon>
+      </a>
+    </div>
   </div>
   
   <!-- Footer -->

@@ -1,3 +1,5 @@
+@import './mixins';
+
 :host {
   display: flex;
   min-height: 100%;
@@ -46,9 +48,56 @@
     }
   }
 
+  &__balloon {
+    position: absolute;
+    right: 25;
+    bottom: 25;
+    z-index: 1000;
+  }
+
   &__footer {
     position: absolute;
     bottom: 0;
     right: 0;
+  }
+}
+
+@include respond-below(mummyshark) {
+  .app {
+    &__input {
+      font-size: 2em;
+    }
+  }
+}
+
+@include respond-below(babyshark) {
+  .app {
+    &__input {
+      font-size: 1.5em;
+    }
+  }
+}
+
+//animations
+@keyframes balloon-rise {
+  0% {
+    right: 25%;
+    bottom: 25%;
+  }
+  25% {
+    right: 28%;
+    bottom: 30%;
+  }
+  50% {
+    right: 35%;
+    bottom: 35%;
+  }
+  75% {
+    right: 40%;
+    bottom: 40%;
+  }
+  100% {
+    right: 40%;
+    bottom: 45%;
   }
 }

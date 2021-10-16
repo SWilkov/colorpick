@@ -13,6 +13,8 @@ import { metaReducers, reducers } from './reducers';
 import { ControlsModule } from './controls/controls.module';
 import { FormsModule } from '@angular/forms';
 import { ImageEffects } from './effects/image.effects';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BalloonEffects } from './effects/balloon.effects';
 
 @NgModule({
   declarations: [
@@ -20,6 +22,7 @@ import { ImageEffects } from './effects/image.effects';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     
     ControlsModule,
@@ -28,7 +31,8 @@ import { ImageEffects } from './effects/image.effects';
     }),
     EffectsModule.forRoot([
       HexEffects,
-      ImageEffects
+      ImageEffects,
+      BalloonEffects
     ]),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production })
   ],
