@@ -21,7 +21,8 @@ export class MinimalInputComponent implements OnInit, AfterViewInit, OnDestroy {
 
   constructor() { }
 
-  ngOnInit(): void {    
+  ngOnInit(): void {  
+      
   }
 
   ngAfterViewInit(): void {
@@ -37,7 +38,10 @@ export class MinimalInputComponent implements OnInit, AfterViewInit, OnDestroy {
           this.textChangedEvent.emit(this.searchText);
         }
       });
+
+      this.input.nativeElement.focus(); 
     }
+    
   }  
 
   onClearText(data: any): void {
