@@ -19,6 +19,11 @@ export const selectOriginalInput = createSelector(
   fromHex.getOriginalInput
 );
 
+export const selectValidatedHexadecimal = createSelector(
+  getHexadecimalState,
+  fromHex.getValidatedHexadecimal
+);
+
 export const selectCalculating = createSelector(
   getHexadecimalState,
   fromHex.getCalculating

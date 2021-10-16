@@ -104,4 +104,8 @@ export class HexService {
       return this.getHexadecimalNumberValues(chunk)
     });
   }
+
+  sum(hexadecimals: number[][]): number[] {
+    return hexadecimals.map(x => x.reduce((a, b) => a + b, 0));
+  }
 }

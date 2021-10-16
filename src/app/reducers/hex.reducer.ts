@@ -1,4 +1,5 @@
 
+import { state } from '@angular/animations';
 import { Action, createReducer, on } from '@ngrx/store';
 import * as hexActions from '../actions/hex.actions';
 import { Hexadecimal } from '../models/hexadecimal.model';
@@ -8,7 +9,8 @@ import { Rgba } from '../models/rgba.model';
 export interface HexadecimalState {
   input: string;
   rgbValue: number[];
-  rgbType: RgbType;
+  rgbType: RgbType;  
+  alphaOpacity: number;
   validatedHexValue: string;
   error: string;
   validating: boolean;
@@ -21,6 +23,7 @@ const initialState: HexadecimalState = {
   input: '',
   rgbValue: [167, 195, 12, 255],
   rgbType: RgbType.invalid,
+  alphaOpacity: 1,
   validatedHexValue: '',
   error: '',
   validating: false,
@@ -64,7 +67,8 @@ const _hexReducer = createReducer(
   on(hexActions.calculateRgbFromHexadecimal,
     (state, {payload}) => ({
       ...state,
-      calculating: true
+      calculating: true,
+      input: payload
     })),
   on(hexActions.calculateRgbFromHexadecimalSuccess,
     (state, {payload}) => ({
@@ -77,7 +81,7 @@ const _hexReducer = createReducer(
     (state, {payload}) => ({
       ...state,
       calculating: false
-    }))
+    }))  
 );
 
 export function hexadecimalReducer(state: HexadecimalState | undefined, action: Action) {
@@ -91,6 +95,9 @@ export const getValidating = (state: HexadecimalState | undefined) => state?.val
 export const getValidated = (state: HexadecimalState | undefined) => state?.validated;
 
 export const getOriginalInput = (state: HexadecimalState | undefined) => state?.input;
+export const getValidatedHexadecimal = (state: HexadecimalState) =>
+  state?.validatedHexValue;
+
 export const getRgbValue = (state: HexadecimalState) => state?.rgbValue;
 export const getRgbType = (state: HexadecimalState | undefined) => state?.rgbType;
 
