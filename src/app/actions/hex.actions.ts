@@ -41,6 +41,16 @@ export const calculateRgbFromHexadecimalSuccess = createAction(
   props<{payload: number[][]}>()
 );
 
+export const sumHexadecimals = createAction(
+  '[HEXADECIMAL] sum hexadecimals',
+  props<{payload: number[]}>()
+);
+
+export const getOpacityFromAlphaTransparency = createAction(
+  '[HEXADECIMAL get opacity from alpha tranparency]',
+  props<{payload: number}>()
+);
+
 export const calculateRgbFromHexadecimalFailed = createAction(
   '[HEXADECIMAL calculate rgb from hexadecimal failed',
   props<{payload: Error}>()

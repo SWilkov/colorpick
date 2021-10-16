@@ -12,6 +12,7 @@ import { environment } from 'src/environments/environment';
 import { metaReducers, reducers } from './reducers';
 import { ControlsModule } from './controls/controls.module';
 import { FormsModule } from '@angular/forms';
+import { ImageEffects } from './effects/image.effects';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { FormsModule } from '@angular/forms';
       metaReducers: metaReducers
     }),
     EffectsModule.forRoot([
-      HexEffects
+      HexEffects,
+      ImageEffects
     ]),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production })
   ],

@@ -7,6 +7,7 @@ import { catchError, map, switchMap } from 'rxjs/operators';
 import { of } from 'rxjs';
 import * as hexDomain from '../data/hexadecimal.domain';
 import { RgbType } from '../models/rgb-type.model';
+import { hexadecimalReducer } from '../reducers/hex.reducer';
 
 @Injectable()
 export class HexEffects {
@@ -45,8 +46,8 @@ export class HexEffects {
         ofType(hexActions.calculateRgbFromHexadecimal),
         switchMap(({payload: input}) => of(this.hexService.getRgbValues(input))
           .pipe(
-            map((response) => hexActions.calculateRgbFromHexadecimalSuccess({payload: response})),
+            map((response) => hexActions.calculateRgbFromHexadecimalSuccess({payload: response})),                        
             catchError((error) => of(hexActions.calculateRgbFromHexadecimalFailed({payload: error})))
-          ))
-      ));
+          ))            
+      ));    
 }
