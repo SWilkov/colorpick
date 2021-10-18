@@ -15,6 +15,7 @@ import { FormsModule } from '@angular/forms';
 import { ImageEffects } from './effects/image.effects';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BalloonEffects } from './effects/balloon.effects';
+import { PagesModule } from './pages/pages.module';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { BalloonEffects } from './effects/balloon.effects';
     AppRoutingModule,
     
     ControlsModule,
+    PagesModule,
     StoreModule.forRoot(reducers, {
       metaReducers: metaReducers
     }),

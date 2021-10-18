@@ -1,16 +1,16 @@
 <div class="hexrgba">
   <div class="hexrgba__container">
-    <div class="app__input-container">
+    <div class="hexrgba__input-container">
       <cp-minimal-input [placeholderText]="'hexadecimal'" 
         (textChangedEvent)="onHexadecimalChanged($event)"></cp-minimal-input>
     </div> 
     <div *ngIf="rgba$ | async as rgba">
-      <input [value]="getFriendlyRgba(rgba)" class="app__input"
+      <input [value]="getFriendlyRgba(rgba)" class="hexrgba__input"
         [ngStyle]="{ 'opacity': (opacity$ | async), 'color': getFriendlyRgba(rgba) }">   
     </div>
 
-    <div class="app__balloon" [@riseFall]="isRising ? 'rise' : 'fall'">
-      <a href="#" (click)="toggle()">
+    <div class="hexrgba__balloon" [@riseFall]="isRising ? 'rise' : 'fall'">
+      <a (click)="toggle()" class="hexrgba__link">
         <cp-balloon></cp-balloon>
       </a>
     </div>
