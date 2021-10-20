@@ -15,31 +15,41 @@ import { FormsModule } from '@angular/forms';
 import { ImageEffects } from './effects/image.effects';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BalloonEffects } from './effects/balloon.effects';
-import { PagesModule } from './pages/pages.module';
+import { ImageService } from './services/image.service';
+import { AppLinkService } from './services/app-link.service';
+import { AppLinkEffects } from './effects/app-link.effects';
+import { HexToRgbaComponent } from './pages/hex-to-rgba/hex-to-rgba.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HexToRgbaComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
     
-    ControlsModule,
-    PagesModule,
+    ControlsModule,    
     StoreModule.forRoot(reducers, {
       metaReducers: metaReducers
     }),
     EffectsModule.forRoot([
       HexEffects,
       ImageEffects,
-      BalloonEffects
+      BalloonEffects,
+      AppLinkEffects
     ]),
-    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production })
+    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
+    
+  ],
+  exports: [
+    HexToRgbaComponent
   ],
   providers: [
-    HexService
+    HexService,
+    ImageService,
+    AppLinkService
   ],
   bootstrap: [AppComponent]
 })

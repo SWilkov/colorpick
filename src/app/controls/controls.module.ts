@@ -6,6 +6,8 @@ import { MinimalInputComponent } from './minimal-input/minimal-input.component';
 import { BalloonComponent } from './balloon/balloon.component';
 import { FormsModule } from '@angular/forms';
 import { ClearButtonComponent } from './clear-button/clear-button.component';
+import { HexToRgbaComponent } from '../pages/hex-to-rgba/hex-to-rgba.component';
+import { AppLinkService } from '../services/app-link.service';
 
 
 
@@ -15,7 +17,8 @@ import { ClearButtonComponent } from './clear-button/clear-button.component';
     FooterComponent,
     MinimalInputComponent,
     BalloonComponent,
-    ClearButtonComponent
+    ClearButtonComponent,
+    
   ],
   imports: [
     CommonModule,
@@ -26,7 +29,11 @@ import { ClearButtonComponent } from './clear-button/clear-button.component';
     FooterComponent,
     MinimalInputComponent,
     BalloonComponent,
-    ClearButtonComponent
+    ClearButtonComponent,
+    
+  ],
+  providers: [
+     
   ]
 })
 export class ControlsModule { }

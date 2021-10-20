@@ -8,6 +8,8 @@ import * as hexSelectors from '../../selectors/hex.selector';
 import * as imageSelectors from '../../selectors/image.selector';
 import * as imageActions from '../../actions/image.actions';
 import { trigger, state, style, transition, animate } from '@angular/animations';
+import { AppLink } from 'src/app/models/app-link.model';
+import * as linkActions from '../../actions/app-link.actions';
 
 @Component({
   selector: 'cp-hex-to-rgba',
@@ -36,6 +38,7 @@ export class HexToRgbaComponent implements OnInit, AfterViewInit, OnDestroy {
   rgba$: Observable<Rgba>;
   opacity$: Observable<number>;
   validatedHex$: Observable<string>;
+  links$: Observable<AppLink[]>;
 
   rgbaSubscription: Subscription;
   validatedHexSubscription: Subscription;

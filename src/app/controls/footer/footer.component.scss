@@ -1,6 +1,44 @@
+@import '../../mixins';
+
 .footer {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  margin: 0;
+  &__container {
+    display: inline-block;
+    position: relative;
+    width: 100%;
+    vertical-align: middle;
+    overflow: hidden;
+  }
+
+  &__bg {
+    display: inline-block;
+    //position: absolute;
+    width: 2000px;
+    height: 257px;
+    left: 0;
+    bottom: 0;
+  }
+
+  &__details {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 0.5em 0;
+  }
+
+  &__link {
+    color: var(--text-color);
+    text-decoration: none;
+    &:hover {
+      color: var(--text-color-hover);
+    }
+  }
+}
+
+@include respond-below(mummyshark) {
+  .footer {
+    &__bg {
+      width: 1200px;
+      height: 154px;
+    }
+  }
 }
