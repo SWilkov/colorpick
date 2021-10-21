@@ -1,7 +1,13 @@
  [
     {
       "name": "Github",
-      "link": "https://github.com/SWilkov/colorpick"
+      "link": "https://github.com/SWilkov/colorpick",
+      "caption": "source code on Github",
+      "logo": {
+        "name": "Github",
+        "lightUrl": "../../../assets/images/GitHub-Mark-32px.png",
+        "darkUrl": "../../../assets/images/GitHub-Mark-Light-32px.png"
+      }
     }
 ]
 

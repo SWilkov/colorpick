@@ -4,8 +4,8 @@ import * as fromBalloon from '../reducers/balloon.reducer';
 
 const balloonState = (state: AppState) => state.balloon;
 
-export const selectAnimationRunning = createSelector(
+export const selectIsRising = createSelector(
   balloonState,
-  fromBalloon.getAnimationRunning
+  fromBalloon.isRising
 );
 

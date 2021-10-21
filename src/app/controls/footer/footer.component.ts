@@ -11,6 +11,9 @@ import { AppLink } from 'src/app/models/app-link.model';
 import * as linkActions from '../../actions/app-link.actions';
 import * as linkSelectors from '../../selectors/app-link.selector';
 import { AppLinkService } from 'src/app/services/app-link.service';
+import * as themeSelectors from '../../selectors/theme.selector';
+import { Theme } from 'src/app/models/theme.enum';
+import { AppLogo } from 'src/app/models/app-logo.model';
 
 @Component({
   selector: 'cp-footer',
@@ -23,7 +26,8 @@ export class FooterComponent implements OnInit, OnDestroy {
   opacity$: Observable<number>;
   appLinks$: Observable<AppLink[]>;
   appLinksLoaded$: Observable<boolean>;
-
+  theme$: Observable<Theme>;
+  
   rgbaSubscription: Subscription;
   appLinksLoadedSubscription: Subscription;
 
@@ -38,6 +42,7 @@ export class FooterComponent implements OnInit, OnDestroy {
     this.opacity$ = this.store.select(imageSelectors.selectOpacity);
     this.appLinks$ = this.store.select(linkSelectors.selectAppLinks);
     this.appLinksLoaded$ = this.store.select(linkSelectors.selectLoaded);
+    this.theme$ = this.store.select(themeSelectors.selectTheme);
 
     this.rgbaSubscription = this.rgba$.subscribe(rgba => {
       if (rgba) {
@@ -59,6 +64,9 @@ export class FooterComponent implements OnInit, OnDestroy {
   getFriendlyRgba = (rgba: Rgba): string =>
     `rgba(${rgba.red}, ${rgba.green}, ${rgba.blue}, ${rgba.alpha})`;
 
+  getLogoUrl = (logo: AppLogo, theme: Theme | undefined | null): string => 
+    theme === Theme.Light || theme === undefined || theme === null ? logo.lightUrl : logo.darkUrl;
+  
   ngOnDestroy(): void {
     if (this.rgbaSubscription) {
       this.rgbaSubscription.unsubscribe();

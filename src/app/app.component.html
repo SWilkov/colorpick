@@ -1,8 +1,11 @@
 
-  <cp-nav-bar></cp-nav-bar>  
-  <div class="app__content" role="main">
-    <router-outlet></router-outlet>
-  </div>
-  
-  <!-- Footer -->
-  <cp-footer></cp-footer>
+    <cp-nav-bar></cp-nav-bar>  
+    <div class="app__content" role="main" *ngIf="theme$ | async as theme" 
+      [class.app__content--light]="theme === 'light'"
+      [class.app__content--dark]="theme === 'dark'">
+      <router-outlet></router-outlet>
+    </div>
+    
+    <!-- Footer -->
+    <cp-footer></cp-footer>
+ 

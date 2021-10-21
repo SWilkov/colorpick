@@ -14,11 +14,12 @@ import { ControlsModule } from './controls/controls.module';
 import { FormsModule } from '@angular/forms';
 import { ImageEffects } from './effects/image.effects';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { BalloonEffects } from './effects/balloon.effects';
 import { ImageService } from './services/image.service';
 import { AppLinkService } from './services/app-link.service';
 import { AppLinkEffects } from './effects/app-link.effects';
 import { HexToRgbaComponent } from './pages/hex-to-rgba/hex-to-rgba.component';
+import { ThemeService } from './services/theme.service';
+import { ThemeEffects } from './effects/theme.effects';
 
 @NgModule({
   declarations: [
@@ -37,8 +38,8 @@ import { HexToRgbaComponent } from './pages/hex-to-rgba/hex-to-rgba.component';
     EffectsModule.forRoot([
       HexEffects,
       ImageEffects,
-      BalloonEffects,
-      AppLinkEffects
+      AppLinkEffects,
+      ThemeEffects
     ]),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
     
@@ -49,7 +50,8 @@ import { HexToRgbaComponent } from './pages/hex-to-rgba/hex-to-rgba.component';
   providers: [
     HexService,
     ImageService,
-    AppLinkService
+    AppLinkService,
+    ThemeService
   ],
   bootstrap: [AppComponent]
 })
