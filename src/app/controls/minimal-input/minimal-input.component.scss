@@ -72,13 +72,18 @@
 @include respond-below(babyshark) {
   .minbtn {
     display: flex;
+
+    &__input {
+      max-width: 300px;
+      font-size: var(--input-font-size-bs);
+    }
   }
 }
 
 @include respond-below(tinyshark) {
   .minbtn {
     &__input {
-      font-size: 1em;
+      font-size: var(--input-font-size-ts);
     }
   }
 }

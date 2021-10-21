@@ -63,7 +63,7 @@
     }
 
     &__input {
-      font-size: 1.5em;
+      font-size: var(--input-font-size-bs);
     }
   }
 }
@@ -71,7 +71,7 @@
 @include respond-below(tinyshark) {
   .hexrgba {
     &__input {
-      font-size: 1em;
+      font-size: var(--input-font-size-ts);
     }
   }
 }
