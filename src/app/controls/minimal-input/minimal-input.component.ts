@@ -1,7 +1,10 @@
 import { AfterViewInit, Component, ElementRef, EventEmitter, Input, OnDestroy, OnInit, Output, ViewChild } from '@angular/core';
-import { fromEvent, Subscription } from 'rxjs';
+import { Store } from '@ngrx/store';
+import { fromEvent, Observable, Subscription } from 'rxjs';
 import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
-
+import { Theme } from 'src/app/models/theme.enum';
+import { AppState } from 'src/app/reducers';
+import * as themeSelectors from '../../selectors/theme.selector';
 @Component({
   selector: 'cp-minimal-input',
   templateUrl: './minimal-input.component.html',
@@ -12,6 +15,8 @@ export class MinimalInputComponent implements OnInit, AfterViewInit, OnDestroy {
 
   @Input() placeholderText: string = '';
   @Output() textChangedEvent: EventEmitter<string> = new EventEmitter<string>();
+  theme$: Observable<Theme>;
+
   searchText: string; 
   readonly: boolean = false;
   keyupSubscription: Subscription;
@@ -19,10 +24,10 @@ export class MinimalInputComponent implements OnInit, AfterViewInit, OnDestroy {
   min: number = 5;
   max: number = 10;
 
-  constructor() { }
+  constructor(private store: Store<AppState>) { }
 
   ngOnInit(): void {  
-      
+      this.theme$ = this.store.select(themeSelectors.selectTheme);
   }
 
   ngAfterViewInit(): void {

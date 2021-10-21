@@ -10,6 +10,11 @@ import * as imageActions from '../../actions/image.actions';
 import { trigger, state, style, transition, animate } from '@angular/animations';
 import { AppLink } from 'src/app/models/app-link.model';
 import * as linkActions from '../../actions/app-link.actions';
+import * as themeActions from '../../actions/theme.actions';
+import { Theme } from 'src/app/models/theme.enum';
+import * as themeSelectors from '../../selectors/theme.selector';
+import * as balloonSelectors from '../../selectors/balloon.selector';
+import * as balloonActions from '../../actions/balloon.actions';
 
 @Component({
   selector: 'cp-hex-to-rgba',
@@ -17,11 +22,13 @@ import * as linkActions from '../../actions/app-link.actions';
     trigger('riseFall', [
       state('rise', style({
         bottom: 245,
-        right: 25
+        right: 25,
+        opacity: 1
       })),
       state('fall', style({
-        bottom: 30,
-        right: 25
+        bottom: 50,
+        right: 25,
+        opacity: 0.25
       })),
       transition('fall => rise', [
         animate('3s')
@@ -39,28 +46,31 @@ export class HexToRgbaComponent implements OnInit, AfterViewInit, OnDestroy {
   opacity$: Observable<number>;
   validatedHex$: Observable<string>;
   links$: Observable<AppLink[]>;
-
+  theme$: Observable<Theme>;
   rgbaSubscription: Subscription;
   validatedHexSubscription: Subscription;
 
-  isRising: boolean = false;
-
+  //isRising: boolean = false;
+  isRising$: Observable<boolean>;
   constructor(private store: Store<AppState>) { }
 
   ngOnInit(): void {
     this.rgba$ = this.store.select(hexSelectors.selectRgba);
     this.opacity$ = this.store.select(imageSelectors.selectOpacity);
     this.validatedHex$ = this.store.select(hexSelectors.selectValidatedHexadecimal);
+    this.theme$ = this.store.select(themeSelectors.selectTheme);
+    this.isRising$ = this.store.select(balloonSelectors.selectIsRising);
 
     this.rgbaSubscription = this.rgba$.subscribe(rgba => {
       if (rgba) {
-        this.store.dispatch(imageActions.calculateOpacity({ payload: rgba }));       
+        this.store.dispatch(imageActions.calculateOpacity({ payload: rgba })); 
+        this.store.dispatch(themeActions.checkTheme({ payload: rgba }));      
       }
     });
 
     this.validatedHexSubscription = this.validatedHex$.subscribe(hex => {
       if (hex) {        
-        this.store.dispatch(hexActions.calculateRgbFromHexadecimal({payload: hex}));
+        this.store.dispatch(hexActions.calculateRgbFromHexadecimal({payload: hex}));        
       }
     });    
     
@@ -76,14 +86,19 @@ export class HexToRgbaComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   toggle(): void {
-    this.isRising = !this.isRising;
+    //this.isRising = !this.isRising;
+    this.store.dispatch(balloonActions.toggle());
   }
 
   ngAfterViewInit(): void {
+    // setTimeout(() => {
+    //   if (!this.isRising) {
+    //     this.isRising = true;
+    //   }
+    // }, 500);
+
     setTimeout(() => {
-      if (!this.isRising) {
-        this.isRising = true;
-      }
+      this.store.dispatch(balloonActions.toggle());
     }, 500);
   }
 

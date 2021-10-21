@@ -1,6 +1,27 @@
 .navbar {
   position: fixed;
   height: 50px;
+  width: 100%;
+
+  &--light {
+    background: var(--default-theme-bg-color);
+    color: var(--dark-theme-bg-color);
+  }
+
+  &--dark {
+    background: var(--dark-theme-bg-color);
+    color: var(--default-theme-bg-color);
+  }
+
+  &__text {
+    &--light {     
+      fill: #b6c1c6;
+    }
+
+    &--dark {      
+      fill: var(--default-theme-bg-color);
+    }
+  }
 
   &__container {
     padding: 0 2em;

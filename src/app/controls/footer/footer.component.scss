@@ -6,7 +6,7 @@
     position: relative;
     width: 100%;
     vertical-align: middle;
-    overflow: hidden;
+    overflow: hidden;    
   }
 
   &__bg {
@@ -22,16 +22,46 @@
     display: flex;
     flex-direction: row;
     justify-content: center;
-    padding: 0.5em 0;
+    padding: 0.5em 0;    
   }
 
-  &__link {
-    color: var(--text-color);
+  &__container, &__details {
+    &--light {
+      background: var(--default-theme-bg-color);
+    }
+
+    &--dark {
+      background: var(--dark-theme-bg-color);
+    }
+  }
+
+  &__link {    
     text-decoration: none;
     &:hover {
       color: var(--text-color-hover);
     }
+
+    &--light {
+      color: var(--text-color);
+    }
+
+    &--dark {
+      color: var(--default-theme-bg-color);
+
+      &:hover {
+        color: var(--link-hover);
+      }
+    }
   }
+
+  &__logo {
+    opacity: 0.75; 
+    transition: opacity 500ms ease-in-out;   
+  }  
+}
+
+.footer__link:hover > .footer__logo {
+  opacity: 1;
 }
 
 @include respond-below(mummyshark) {

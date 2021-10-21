@@ -12,18 +12,21 @@ import * as fromHexadecimal from './hex.reducer';
 import * as fromImage from './image.reducer';
 import * as fromBalloon from './balloon.reducer';
 import * as fromLinks from './app-link.reducer';
+import * as fromTheme from './theme.reducer';
 export interface AppState {
   hexadecimal: fromHexadecimal.HexadecimalState,
   image: fromImage.ImageState,
   balloon: fromBalloon.BalloonState,
-  appLink: fromLinks.AppLinkState
+  appLink: fromLinks.AppLinkState,
+  theme: fromTheme.ThemeState
 }
 
 export const reducers: ActionReducerMap<AppState> = {
   hexadecimal: fromHexadecimal.hexadecimalReducer,
   image: fromImage.imageReducer,
   balloon: fromBalloon.balloonReducer,
-  appLink: fromLinks.appLinkReducer
+  appLink: fromLinks.appLinkReducer,
+  theme: fromTheme.themeReducer
 };
 
 export const metaReducers: MetaReducer<AppState>[] = !environment.production ? [] : [];

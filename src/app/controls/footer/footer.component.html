@@ -1,5 +1,7 @@
 <div class="footer">
-  <div class="footer__container">
+  <div class="footer__container"
+    [class.footer__container--light]="(theme$ | async) === 'light'"
+    [class.footer__container--dark]="(theme$ | async) === 'dark'">
   <svg xmlns="http://www.w3.org/2000/svg" class="footer__bg" viewBox="0 0 2000 257"
     *ngIf="rgba$ | async as rgba">
       <defs>
@@ -16,9 +18,16 @@
     </svg>
   </div>
 
-    <section class="footer__details" *ngIf="links">
+    <section class="footer__details" *ngIf="links"
+      [class.footer__details--light]="(theme$ | async) === 'light'"
+      [class.footer__details--dark]="(theme$ | async) === 'dark'">
+      
       <nav>
-        <a *ngFor="let l of links" [href]="l.link" class="footer__link">{{l.name}}</a>
+        <a *ngFor="let l of links" [href]="l.link" class="footer__link" [title]="l.caption"
+          [class.footer__link--light]="(theme$ | async) === 'light'"
+          [class.footer__link--dark]="(theme$ | async) === 'dark'">
+          <img [src]="getLogoUrl(l.logo, (theme$ | async))" class="footer__logo"> 
+        </a>
       </nav>
     </section>
 </div>

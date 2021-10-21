@@ -16,7 +16,6 @@
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;    
-    background: #ffffff;   
     
     -webkit-transition: all 0.1s ease-in-out;
     -moz-transition: all 0.1s ease-in-out;
@@ -26,6 +25,17 @@
 
     &:focus {
       border-bottom: 1px solid #ddd;
+    }
+
+    &--light {
+      background: var(--default-theme-bg-color);
+      color: var(--dark-theme-bg-color);
+    }
+
+    &--dark {
+      color: var(--default-theme-bg-color);
+      background: var(--dark-theme-bg-color);
+      opacity: 1;
     }
   }
 
@@ -40,5 +50,28 @@
     right: 25;
     bottom: 25;
     z-index: 1000;
+  }
+}
+
+@include respond-below(babyshark) {
+  .hexrgba {
+
+    &__container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    &__input {
+      font-size: 1.5em;
+    }
+  }
+}
+
+@include respond-below(tinyshark) {
+  .hexrgba {
+    &__input {
+      font-size: 1em;
+    }
   }
 }
