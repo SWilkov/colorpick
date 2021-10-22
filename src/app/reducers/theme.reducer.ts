@@ -25,6 +25,11 @@ const _themeReducer = createReducer(
   on(themeActions.checkThemeFailed,
     (state, {payload}) => ({
       ...state
+    })),
+  on(themeActions.toggleTheme,
+    (state) => ({
+      ...state,
+      theme: state.theme === Theme.Light ? Theme.Dark : Theme.Light
     }))
 );
 
