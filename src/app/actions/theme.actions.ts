@@ -16,3 +16,7 @@ export const checkThemeFailed = createAction(
   '[THEME] change theme failed',
   props<{payload: Error}>() 
 );
+
+export const toggleTheme = createAction(
+  '[THEME] toggle theme (dark/light)'
+);

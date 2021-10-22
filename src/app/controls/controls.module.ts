@@ -9,6 +9,7 @@ import { ClearButtonComponent } from './clear-button/clear-button.component';
 import { HexToRgbaComponent } from '../pages/hex-to-rgba/hex-to-rgba.component';
 import { AppLinkService } from '../services/app-link.service';
 import { RgbaViewerComponent } from './rgba-viewer/rgba-viewer.component';
+import { ToggleDarkModeComponent } from './toggle-dark-mode/toggle-dark-mode.component';
 
 
 
@@ -20,6 +21,7 @@ import { RgbaViewerComponent } from './rgba-viewer/rgba-viewer.component';
     BalloonComponent,
     ClearButtonComponent,
     RgbaViewerComponent,
+    ToggleDarkModeComponent,
     
   ],
   imports: [
@@ -32,7 +34,8 @@ import { RgbaViewerComponent } from './rgba-viewer/rgba-viewer.component';
     MinimalInputComponent,
     BalloonComponent,
     ClearButtonComponent,
-    RgbaViewerComponent
+    RgbaViewerComponent,
+    ToggleDarkModeComponent
   ],
   providers: [
      
