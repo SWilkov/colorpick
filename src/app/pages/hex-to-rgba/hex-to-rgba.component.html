@@ -1,13 +1,14 @@
-<div class="hexrgba">
+<div class="hexrgba" [class.hexrgba--dark]="(theme$ | async) === 'dark'">
   <div class="hexrgba__container">
     <div class="hexrgba__input-container">
       <cp-minimal-input [placeholderText]="'hexadecimal'" 
         (textChangedEvent)="onHexadecimalChanged($event)"></cp-minimal-input>
     </div> 
-    <div *ngIf="rgba$ | async as rgba">
-      <input [value]="getFriendlyRgba(rgba)" class="hexrgba__input"        
+    <div *ngIf="rgba$ | async as rgba" class="hexrgba__rgba">
+      <!-- <input [value]="getFriendlyRgba(rgba)" class="hexrgba__input"        
         [ngStyle]="{ 'opacity': (opacity$ | async), 'color': (theme$ | async) === 'light' ? getFriendlyRgba(rgba) : 'var(--default-theme-bg-color)' }"
-        [class.hexrgba__input--dark]="(theme$ | async) === 'dark'">   
+        [class.hexrgba__input--dark]="(theme$ | async) === 'dark'">    -->
+      <cp-rgba-viewer [rgba]="rgba"></cp-rgba-viewer>
     </div>
 
     <div class="hexrgba__balloon" [@riseFall]="(isRising$ | async) ? 'rise' : 'fall'">

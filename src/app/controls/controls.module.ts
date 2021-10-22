@@ -8,6 +8,7 @@ import { FormsModule } from '@angular/forms';
 import { ClearButtonComponent } from './clear-button/clear-button.component';
 import { HexToRgbaComponent } from '../pages/hex-to-rgba/hex-to-rgba.component';
 import { AppLinkService } from '../services/app-link.service';
+import { RgbaViewerComponent } from './rgba-viewer/rgba-viewer.component';
 
 
 
@@ -18,6 +19,7 @@ import { AppLinkService } from '../services/app-link.service';
     MinimalInputComponent,
     BalloonComponent,
     ClearButtonComponent,
+    RgbaViewerComponent,
     
   ],
   imports: [
@@ -30,7 +32,7 @@ import { AppLinkService } from '../services/app-link.service';
     MinimalInputComponent,
     BalloonComponent,
     ClearButtonComponent,
-    
+    RgbaViewerComponent
   ],
   providers: [
      

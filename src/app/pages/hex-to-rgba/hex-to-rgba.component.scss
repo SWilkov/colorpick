@@ -1,9 +1,18 @@
 @import '../../mixins';
 
 .hexrgba {
+  border-radius: 12px;
+  padding: 1em 2em;  
+  box-shadow: 5px 5px 4em 1px rgb(0 0 0 / 15%);
+  -webkit-box-shadow: 5px 5px 4em 5px rgb(0 0 0 / 15%);
+  
+  &--dark {
+    background: var(--dark-theme-bg-color);
+  }
+
   &__input-container {
     display: flex;
-    justify-content: center;
+    //justify-content: space-evenly;
   }
 
   &__input {
@@ -64,6 +73,10 @@
 
     &__input {
       font-size: 1.5em;
+    }
+
+    &__rgba {
+      width: 100%;
     }
   }
 }
