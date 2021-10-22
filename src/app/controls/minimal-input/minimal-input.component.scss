@@ -14,11 +14,10 @@
 
 .minbtn {
   
-  display: grid;
-  grid-template-columns: 1fr 100px;
-  column-gap: 20px;
+  display: flex;
+
   align-items: center;
-  justify-content: center;
+  justify-content: space-evenly;
 
   &__input {
     display: block;    

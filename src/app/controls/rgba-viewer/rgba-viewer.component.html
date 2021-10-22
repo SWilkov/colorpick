@@ -1,0 +1,32 @@
+<section class="rgba-viewer">
+  <div class="rgba-viewer__container" *ngIf="rgba">
+    <div class="rgba-viewer__item">
+      <div class="rgba-viewer__square  rgba-viewer__square--red">
+        <div>r</div>
+      </div>
+      <span class="rgba-viewer__text rgba-viewer__text--red">{{rgba.red}}</span>
+    </div>
+
+    <div class="rgba-viewer__item">
+      <div class="rgba-viewer__square rgba-viewer__square--green">
+        <div>g</div>
+      </div>
+      <span class="rgba-viewer__text rgba-viewer__text--green">{{rgba.green}}</span>
+    </div>
+
+    <div class="rgba-viewer__item">
+      <div class="rgba-viewer__square rgba-viewer__square--blue">
+        <div>b</div>
+      </div>
+      <span class="rgba-viewer__text rgba-viewer__text--blue">{{rgba.blue}}</span>
+    </div>
+
+    <div class="rgba-viewer__item">
+      <div class="rgba-viewer__square rgba-viewer__square--alpha">
+        <div>a</div>
+      </div>
+      <span class="rgba-viewer__text rgba-viewer__text--alpha"
+        [class.rgba-viewer__text--alpha--dark]="(theme$ | async) === 'dark'">{{rgba.alpha}}</span>
+    </div>
+  </div>
+</section>
