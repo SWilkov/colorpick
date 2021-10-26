@@ -66,7 +66,10 @@ export class HexService {
       let hex = this.getHexadecimal(array[i]);
 
       if (hex) {
-        result.push(this.hexBySixteenCalc(hex, countdownSteps));
+        let res = this.hexBySixteenCalc(hex, countdownSteps);
+        if (res) {
+          result.push(res);
+        }
         countdownSteps--;
       }
     }
@@ -79,14 +82,16 @@ export class HexService {
     array && array.length > 0 ? array.length - 1 : 0;
 
   getHexadecimal = (symbol: string): Hexadecimal | undefined => 
-    hexDomain.hexidecimals.some(x => x.symbol === symbol.toUpperCase()) ?
+    
+    symbol && hexDomain.hexidecimals.some(x => x.symbol === symbol.toUpperCase()) ?
     hexDomain.hexidecimals.find(x => x.symbol === symbol.toUpperCase()) :
     undefined;
+  
 
-  hexBySixteenCalc = (hexadecimal: Hexadecimal, multiplier: number) => 
+  hexBySixteenCalc = (hexadecimal: Hexadecimal | undefined, multiplier: number) => 
     multiplier > 0 ? 
-      (hexadecimal.value * Math.pow(hexDomain.HEX_MULTIPLIER, multiplier)) :
-      hexadecimal.value;
+      (hexadecimal && hexadecimal.value * Math.pow(hexDomain.HEX_MULTIPLIER, multiplier)) :
+      hexadecimal?.value;
     
   rgbSplitter = (input: string): string[] => {
     var chunks: string[] = [];
@@ -105,7 +110,29 @@ export class HexService {
     });
   }
 
+  getDecimal = (input: string): number[] => {
+    let arr = [...input];
+    let hexs = arr.map(x => this.getHexadecimal(x));
+    let countdownSteps = this.getCountdownSteps(arr);
+    let result: number[] = [];
+
+    for(var i = 0; i < hexs.length; i++)
+    {
+      let calculation = this.hexBySixteenCalc(hexs[i], countdownSteps);
+      if (calculation) {
+        result.push(calculation);
+      } 
+      countdownSteps--;
+    }
+    
+    return result;
+    // let result: number[] = [1,10];
+    // return result;
+  }
+
   sum(hexadecimals: number[][]): number[] {
     return hexadecimals.map(x => x.reduce((a, b) => a + b, 0));
   }
+
+  
 }

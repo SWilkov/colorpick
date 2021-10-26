@@ -14,6 +14,8 @@ export class MinimalInputComponent implements OnInit, AfterViewInit, OnDestroy {
   @ViewChild('textInput') input: ElementRef;
 
   @Input() placeholderText: string = '';
+  @Input() min: number = 5;
+  @Input() max: number = 10;
   @Output() textChangedEvent: EventEmitter<string> = new EventEmitter<string>();
   theme$: Observable<Theme>;
 
@@ -21,8 +23,6 @@ export class MinimalInputComponent implements OnInit, AfterViewInit, OnDestroy {
   readonly: boolean = false;
   keyupSubscription: Subscription;
   useInputEvent: boolean = true;
-  min: number = 5;
-  max: number = 10;
 
   constructor(private store: Store<AppState>) { }
 

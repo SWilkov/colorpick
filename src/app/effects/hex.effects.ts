@@ -49,5 +49,5 @@ export class HexEffects {
             map((response) => hexActions.calculateRgbFromHexadecimalSuccess({payload: response})),                        
             catchError((error) => of(hexActions.calculateRgbFromHexadecimalFailed({payload: error})))
           ))            
-      ));    
+      ));  
 }

@@ -21,8 +21,8 @@ export interface HexadecimalState {
 
 const initialState: HexadecimalState = {
   input: '',
-  rgbValue: [167, 195, 12, 255],
-  rgbType: RgbType.invalid,
+  rgbValue: [167, 195, 12, 255],  
+  rgbType: RgbType.invalid,  
   alphaOpacity: 1,
   validatedHexValue: '',
   error: '',
@@ -81,7 +81,7 @@ const _hexReducer = createReducer(
     (state, {payload}) => ({
       ...state,
       calculating: false
-    }))  
+    })) 
 );
 
 export function hexadecimalReducer(state: HexadecimalState | undefined, action: Action) {
