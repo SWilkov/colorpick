@@ -10,6 +10,7 @@ export interface HexadecimalState {
   input: string;
   rgbValue: number[];
   rgbType: RgbType;  
+  decimalValue: number;
   alphaOpacity: number;
   validatedHexValue: string;
   error: string;
@@ -21,8 +22,9 @@ export interface HexadecimalState {
 
 const initialState: HexadecimalState = {
   input: '',
-  rgbValue: [167, 195, 12, 255],
+  rgbValue: [167, 195, 12, 255],  
   rgbType: RgbType.invalid,
+  decimalValue: 0,
   alphaOpacity: 1,
   validatedHexValue: '',
   error: '',
@@ -81,7 +83,25 @@ const _hexReducer = createReducer(
     (state, {payload}) => ({
       ...state,
       calculating: false
-    }))  
+    })),
+    
+  on(hexActions.calculateDecimalFromHexadecimal,
+    (state, {payload}) => ({
+      ...state,
+      calculating: true
+    })),
+  on(hexActions.calculateDecimalFromHexadecimalSuccess,
+    (state, {payload}) => ({
+      ...state,
+      calculating: false,
+      calculated: true,
+      decimalValue: payload.reduce((a, b) => a + b, 0)
+    })),
+  on(hexActions.calculateDecimalFromHexadecimalFailed,
+    (state, {payload}) => ({
+      ...state,
+      calculating: false
+    }))
 );
 
 export function hexadecimalReducer(state: HexadecimalState | undefined, action: Action) {
@@ -118,3 +138,5 @@ export const getRgba = (state: HexadecimalState): Rgba => {
     alpha: 255
   };
 };
+
+export const getDecimal = (state: HexadecimalState): number => state.decimalValue;

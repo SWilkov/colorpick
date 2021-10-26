@@ -1,0 +1,113 @@
+@import '../../mixins';
+
+::-ms-input-placeholder { /* Microsoft Edge */
+  color: rgb(122, 123, 131);
+  opacity: 0.4;
+  font-weight: 200;
+ }
+
+ ::placeholder {
+   color: rgb(122, 123, 131);;
+   opacity: 0.4;
+   font-weight: 200;
+ }
+
+.hexdec {
+  display: flex;
+  justify-content: center;
+  border-radius: 12px;
+  padding: 1em 2em;  
+  box-shadow: 5px 5px 4em 1px rgb(0 0 0 / 15%);
+  -webkit-box-shadow: 5px 5px 4em 5px rgb(0 0 0 / 15%);
+  
+  &--dark {
+    background: var(--dark-theme-bg-color);
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  &__input {
+    display: block;    
+    font-weight:300;
+    width: 100%;
+    font-size: 2em;
+    border: 0px;
+    outline: none;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;        
+
+    -webkit-transition: all 0.1s ease-in-out;
+    -moz-transition: all 0.1s ease-in-out;
+    -ms-transition: all 0.1s ease-in-out;
+    -o-transition: all 0.1s ease-in-out;
+    transition: all 0.1s ease-in-out;
+
+    &:focus {
+      border-bottom: 1px solid #ddd;
+    }
+
+    &:first-child {
+      margin-bottom: 20px;
+    }
+
+    &--light {
+      background: var(--default-theme-bg-color);
+      color: var(--dark-theme-bg-color);
+    }
+
+    &--dark {
+      color: var(--default-theme-bg-color);
+      background: var(--dark-theme-bg-color);
+      opacity: 1;
+    }
+  }
+
+  &__link {
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  &__decimal {
+
+  }
+}
+
+@include respond-above(daddyshark) {
+  .hexdec {
+    &__container {
+      max-width: 1200px;
+    }
+  }
+}
+
+@include respond-below(babyshark) {
+  .hexdec {
+
+    &__container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    &__input {
+      font-size: var(--input-font-size-bs);
+    }
+
+    &__decimal {
+      width: 100%;
+    }
+  }
+}
+
+@include respond-below(tinyshark) {
+  .hexdec {
+    &__input {
+      font-size: var(--input-font-size-ts);
+    }
+  }
+}
