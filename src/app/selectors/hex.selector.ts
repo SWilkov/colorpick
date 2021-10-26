@@ -48,8 +48,3 @@ export const selectRgba = createSelector(
   getHexadecimalState,
   fromHex.getRgba
 );
-
-export const selectDecimal = createSelector(
-  getHexadecimalState,
-  fromHex.getDecimal
-);

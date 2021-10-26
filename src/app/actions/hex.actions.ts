@@ -41,23 +41,6 @@ export const calculateRgbFromHexadecimalSuccess = createAction(
   props<{payload: number[][]}>()
 );
 
-//export const convertStringToHexObjects = createAction()
-
-export const calculateDecimalFromHexadecimal = createAction(
-  '[HEXADECIMAL calculate decimal from hexadecimal]',
-  props<{payload: string}>()
-);
-
-export const calculateDecimalFromHexadecimalSuccess = createAction(
-  '[HEXADECIMAL calculate decimal from hexadecimal]',
-  props<{payload: number[]}>()
-);
-
-export const calculateDecimalFromHexadecimalFailed = createAction(
-  '[HEXADECIMAL calculate decimal from hexadecimal failed]',
-  props<{payload: Error}>()
-);
-
 export const sumHexadecimals = createAction(
   '[HEXADECIMAL] sum hexadecimals',
   props<{payload: number[]}>()

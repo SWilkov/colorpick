@@ -50,14 +50,4 @@ export class HexEffects {
             catchError((error) => of(hexActions.calculateRgbFromHexadecimalFailed({payload: error})))
           ))            
       ));  
-      
-    calculateDecimal$ = createEffect(() => this.actions$
-      .pipe(
-        ofType(hexActions.calculateDecimalFromHexadecimal),
-        switchMap(({payload: input}) => of(this.hexService.getDecimal(input))
-          .pipe(
-            map((response) => hexActions.calculateDecimalFromHexadecimalSuccess({payload: response})),
-            catchError((error) => of(hexActions.calculateDecimalFromHexadecimalFailed({payload: error})))
-          ))
-      ));
 }
