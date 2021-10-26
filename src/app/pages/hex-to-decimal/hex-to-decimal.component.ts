@@ -30,6 +30,9 @@ export class HexToDecimalComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   ngAfterViewInit(): void {
+    //using the keyup event from the user input to calculate the decimal value of the hexadecimal
+    //TODO needs refactoring to make available for testing but for now showcases standard rxjs rather than
+    //ngrx store 
     this.keyUpSubscription = 
       fromEvent(this.decimalInput.nativeElement, 'keyup')
         .pipe(
