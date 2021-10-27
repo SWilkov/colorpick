@@ -1,0 +1,15 @@
+<div class="hexbin" [class.hexbin--dark]="(theme$ | async) === 'dark'"
+[class.hexbin--light]="(theme$ | async) === 'light'">
+  <div class="hexbin__container">
+    <!-- <cp-minimal-input [placeholderText]="'hexadecimal'" 
+      (textChangedEvent)="onHexadecimalChanged($event)"></cp-minimal-input> -->
+      <input #hexInput placeholder="hexidecimal" [(ngModel)]="data"
+        class="hexbin__input" 
+        [class.hexbin__input--dark]="(theme$ | async) === 'dark'"
+        [class.hexbin__input--light]="(theme$ | async) === 'light'">        
+      <textarea class="hexbin__textarea" placeholder="binary" [value]="binaryValue$ | async"
+        [class.hexbin__input--dark]="(theme$ | async) === 'dark'"
+        [class.hexbin__input--light]="(theme$ | async) === 'light'"></textarea>
+  </div>
+</div>
+

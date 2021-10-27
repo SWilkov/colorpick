@@ -21,12 +21,14 @@ import { HexToRgbaComponent } from './pages/hex-to-rgba/hex-to-rgba.component';
 import { ThemeService } from './services/theme.service';
 import { ThemeEffects } from './effects/theme.effects';
 import { HexToDecimalComponent } from './pages/hex-to-decimal/hex-to-decimal.component';
+import { HexToBinaryComponent } from './pages/hex-to-binary/hex-to-binary.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HexToRgbaComponent,
-    HexToDecimalComponent
+    HexToDecimalComponent,
+    HexToBinaryComponent
   ],
   imports: [
     BrowserModule,
@@ -48,7 +50,8 @@ import { HexToDecimalComponent } from './pages/hex-to-decimal/hex-to-decimal.com
   ],
   exports: [
     HexToRgbaComponent,
-    HexToDecimalComponent
+    HexToDecimalComponent,
+    HexToBinaryComponent
   ],
   providers: [
     HexService,

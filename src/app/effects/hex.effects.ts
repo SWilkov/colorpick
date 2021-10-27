@@ -50,4 +50,14 @@ export class HexEffects {
             catchError((error) => of(hexActions.calculateRgbFromHexadecimalFailed({payload: error})))
           ))            
       ));  
+
+    calculateBinary$ = createEffect(() => this.actions$
+      .pipe(
+        ofType(hexActions.calculateBinary),
+        switchMap(({input: hex}) => of(this.hexService.getBinarys(hex))
+          .pipe(
+            map((response) => hexActions.calculateBinarySuccess({payload: response})),
+            catchError((error) => of(hexActions.calculateBinaryFailed({ payload: error})))
+          ))
+      ));
 }

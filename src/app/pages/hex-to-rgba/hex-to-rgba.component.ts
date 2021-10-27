@@ -64,7 +64,7 @@ export class HexToRgbaComponent implements OnInit, AfterViewInit, OnDestroy {
     this.rgbaSubscription = this.rgba$.subscribe(rgba => {
       if (rgba) {
         this.store.dispatch(imageActions.calculateOpacity({ payload: rgba })); 
-        this.store.dispatch(themeActions.checkTheme({ payload: rgba }));      
+       // this.store.dispatch(themeActions.checkTheme({ payload: rgba }));      
       }
     });
 
@@ -91,12 +91,7 @@ export class HexToRgbaComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   ngAfterViewInit(): void {
-    // setTimeout(() => {
-    //   if (!this.isRising) {
-    //     this.isRising = true;
-    //   }
-    // }, 500);
-
+   
     setTimeout(() => {
       this.store.dispatch(balloonActions.toggle());
     }, 500);

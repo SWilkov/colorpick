@@ -17,6 +17,7 @@ export interface HexadecimalState {
   validated: boolean;
   calculating: boolean;
   calculated: boolean;
+  binaryValue: string;
 }
 
 const initialState: HexadecimalState = {
@@ -29,7 +30,8 @@ const initialState: HexadecimalState = {
   validating: false,
   validated: false,
   calculating: false,
-  calculated: false
+  calculated: false,
+  binaryValue: ''
 };
 
 const _hexReducer = createReducer(
@@ -81,7 +83,20 @@ const _hexReducer = createReducer(
     (state, {payload}) => ({
       ...state,
       calculating: false
-    })) 
+    })),
+
+  on(hexActions.calculateBinary,
+    (state, {input}) => ({
+      ...state,
+      calculating: true
+    })),
+  on(hexActions.calculateBinarySuccess,
+    (state, {payload}) => ({
+      ...state,
+      calculating: false,
+      calculated: true,
+      binaryValue: payload && payload.length > 0 ? payload.join('') : '' 
+    }))
 );
 
 export function hexadecimalReducer(state: HexadecimalState | undefined, action: Action) {
@@ -118,3 +133,5 @@ export const getRgba = (state: HexadecimalState): Rgba => {
     alpha: 255
   };
 };
+
+export const getBinary = (state: HexadecimalState) => state.binaryValue;

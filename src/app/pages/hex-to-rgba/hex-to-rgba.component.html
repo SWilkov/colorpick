@@ -1,4 +1,5 @@
-<div class="hexrgba" [class.hexrgba--dark]="(theme$ | async) === 'dark'">
+<div class="hexrgba" [class.hexrgba--dark]="(theme$ | async) === 'dark'"
+  [class.hexrgba--light]="(theme$ | async) === 'light'">
   <div class="hexrgba__container">
     <div class="hexrgba__input-container">
       <cp-minimal-input [placeholderText]="'hexadecimal'" 
