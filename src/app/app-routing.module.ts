@@ -7,7 +7,7 @@ import { HexToRgbaComponent } from './pages/hex-to-rgba/hex-to-rgba.component';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'hex-to-binary', 
+    redirectTo: 'hex-to-rgba',
     pathMatch: 'full'
   },  
   {

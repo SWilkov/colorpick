@@ -18,20 +18,19 @@
     display: none;
     
     &:checked ~ .toggledm__slider {
-      background-color: black;
+      background-color: var(--default-theme-bg-color);
     }
 
     &:checked ~ .toggledm__slider::before {
       content: "";
       position: absolute;
-      top: 7px;
-      left: 8px;
-      width: 25px;
-      height: 25px;
-      border-radius: 50%;
-      box-shadow: inset 10px -4px 0px 0px var(--default-theme-bg-color);
-      background-color: var(--dark-theme-bg-color);
-      transform: translateX(0px);
+      top: 5px;
+      left: 45px;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;      
+      background-color: #ffea00;
+      box-shadow: none;
       transition: 0.3s;
     }
   } 
@@ -43,18 +42,19 @@
     height: 100%;
     border-radius: 50px;
     transition: 0.3s;
-
+    
     &::before {
       content: "";
       position: absolute;
-      top: 5px;
-      left: 45px;
-      width: 30px;
-      height: 30px;
-      border-radius: 50%;      
-      background-color: #ffea00;
-      box-shadow: none;
-      transition: 0.5s;
+      top: 7px;
+      left: 8px;
+      width: 25px;
+      height: 25px;
+      border-radius: 50%;
+      box-shadow: inset 10px -4px 0px 0px var(--default-theme-bg-color);
+      background-color: var(--dark-theme-bg-color);
+      transform: translateX(0px);
+      transition: 0.3s;
     }
   }
 }
