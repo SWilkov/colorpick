@@ -10,6 +10,8 @@ import { HexToRgbaComponent } from '../pages/hex-to-rgba/hex-to-rgba.component';
 import { AppLinkService } from '../services/app-link.service';
 import { RgbaViewerComponent } from './rgba-viewer/rgba-viewer.component';
 import { ToggleDarkModeComponent } from './toggle-dark-mode/toggle-dark-mode.component';
+import { HamburgerButtonComponent } from './hamburger-button/hamburger-button.component';
+import { MobileMenuComponent } from './mobile-menu/mobile-menu.component';
 
 
 
@@ -22,6 +24,8 @@ import { ToggleDarkModeComponent } from './toggle-dark-mode/toggle-dark-mode.com
     ClearButtonComponent,
     RgbaViewerComponent,
     ToggleDarkModeComponent,
+    HamburgerButtonComponent,
+    MobileMenuComponent,
     
   ],
   imports: [
@@ -35,7 +39,9 @@ import { ToggleDarkModeComponent } from './toggle-dark-mode/toggle-dark-mode.com
     BalloonComponent,
     ClearButtonComponent,
     RgbaViewerComponent,
-    ToggleDarkModeComponent
+    ToggleDarkModeComponent,
+    HamburgerButtonComponent,
+    MobileMenuComponent
   ],
   providers: [
      

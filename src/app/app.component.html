@@ -1,11 +1,16 @@
 
-    <cp-nav-bar></cp-nav-bar>  
-    <div class="app__content" role="main" *ngIf="theme$ | async as theme" 
-      [class.app__content--light]="theme === 'light'"
-      [class.app__content--dark]="theme === 'dark'">
+    <cp-nav-bar></cp-nav-bar> 
+    
+    <div class="app__content" role="main" *ngIf="(menuState$ | async) === 'closed';else mobileMenu"      
+      [class.app__content--light]="(theme$ | async) === 'light'"
+      [class.app__content--dark]="(theme$ | async) === 'dark'">
       <router-outlet></router-outlet>
     </div>
-    
+    <ng-template #mobileMenu>
+      <cp-mobile-menu class="app__mobile-menu"
+        [class.app__mobile-menu--light]="(theme$ | async) === 'light'"
+        [class.app__mobile-menu--dark]="(theme$ | async) === 'dark'"></cp-mobile-menu>
+    </ng-template>
     <!-- Footer -->
     <cp-footer></cp-footer>
  

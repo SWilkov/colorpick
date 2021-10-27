@@ -21,7 +21,7 @@ export class NavBarComponent implements OnInit {
   
   constructor(private store: Store<AppState>) { }
 
-  ngOnInit(): void {
+  ngOnInit(): void { 
     this.rgba$ = this.store.select(hexSelectors.selectRgba);
     this.opacity$ = this.store.select(imageSelectors.selectOpacity);
     this.theme$ = this.store.select(themeSelectors.selectTheme);

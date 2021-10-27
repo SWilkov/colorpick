@@ -1,0 +1,10 @@
+<div class="hamburger__container" (click)="toggle()" 
+  [ngClass]="(state$ | async) === 'opened' ? 'change' : ''">
+  <div class="bar1" [class.bar--light]="(theme$ | async) === 'light'"
+  [class.bar--dark]="(theme$ | async) === 'dark'"></div>
+  <div class="bar2" [class.bar--light]="(theme$ | async) === 'light'"
+  [class.bar--dark]="(theme$ | async) === 'dark'"></div>
+  <div class="bar3" [class.bar--light]="(theme$ | async) === 'light'"
+  [class.bar--dark]="(theme$ | async) === 'dark'"></div>
+</div>
+

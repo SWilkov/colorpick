@@ -8,6 +8,22 @@
 
 .app {
   height: 100%;
+  &__mobile-menu {    
+    width: 100%;
+    flex: 1;
+    display: flex;    
+    justify-content: center;
+    align-items: center;
+    margin-top: var(--nav-bar-height);
+
+    &--light {
+      background: var(--default-theme-bg-color);
+    }
+
+    &--dark {
+      background: var(--dark-theme-bg-color);
+    }
+  }
   &__content {
     flex: 1;
     display: flex;
@@ -23,6 +39,10 @@
 
     &--dark {
       background: var(--dark-theme-bg-color);
+    }
+
+    &--hide {
+      display: none;
     }
   }
 
