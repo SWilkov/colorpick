@@ -13,8 +13,8 @@ export interface HamburgerState {
 }
 
 const initState: HamburgerState = {
-  menuVisible: true,
-  menuState: MenuState.OPENED
+  menuVisible: false,
+  menuState: MenuState.CLOSED
 };
 
 const _hamburgerReducer = createReducer(
