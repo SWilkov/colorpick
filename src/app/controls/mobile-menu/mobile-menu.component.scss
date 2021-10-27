@@ -1,0 +1,41 @@
+.mm {
+  
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+  
+  &__svg {
+    width: 200px;
+    height: 60px;
+  }
+
+  &__text {
+    fill-opacity: 1;
+    transition: fill-opacity 0.5s ease-in;
+    &--light {     
+      fill: #b6c1c6;
+    }
+
+    &--dark {      
+      fill: var(--default-theme-bg-color);
+    }
+  }
+
+  &__square {
+    fill-opacity: 1;
+    transition: fill-opacity 0.5s ease-in;
+    &--red {
+      fill: #f80707;
+    }
+    &--green {
+      fill: #07f80c;
+    }
+    &--blue {
+      fill: #0c07f8;
+    }
+  }
+}

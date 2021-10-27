@@ -16,6 +16,8 @@
   }
 
   &__text {
+    fill-opacity: 0.75;
+    transition: fill-opacity 0.5s ease-in;
     &--light {     
       fill: #b6c1c6;
     }
@@ -25,11 +27,59 @@
     }
   }
 
+  &__square {
+    fill-opacity: 0.6;
+    transition: fill-opacity 0.5s ease-in;
+    &--red {
+      fill: #f80707;
+    }
+    &--green {
+      fill: #07f80c;
+    }
+    &--blue {
+      fill: #0c07f8;
+    }
+  }
+
   &__container {
     padding: 1em 2em;
     display: flex;
     justify-content: space-between;
   }
+
+  &__svg {
+    width: 200px;
+    height: 60px;
+  }
+
+  &__links {
+    border: 2px solid rgba(10, 167, 230, 0.6); 
+    padding: 0 1em; 
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+  }
+
+  &__link {
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 500;
+    color: rgb(122, 123, 131);
+    &:first-child {
+      margin-right: 15px;
+    }
+
+    &:hover {
+      color: #e7d610;
+    }
+  }
+
+  
+}
+
+.navbar__link:hover > .navbar__svg > .navbar__square, 
+.navbar__link:hover > .navbar__svg > .navbar__text {
+  fill-opacity: 1;
 }
 
 // @include respond-above(daddyshark) {
@@ -44,6 +94,22 @@
 //   }
 // }
 
+@include respond-below(mummyshark) {
+  .navbar {
+    &__link {
+      
+    }
+  }
+}
+
+@include respond-above(babyshark) {
+  .navbar {
+    &__hamburger {
+      display: none;
+    } 
+  }
+}
+
 @include respond-below(babyshark) {
   .navbar {
     height: 100px;
@@ -52,6 +118,17 @@
       flex-direction: column;
       align-items: center;
       justify-content: space-between;
+    }
+
+    &__hamburger {
+      display: block;
+      position: absolute;
+      right: 5%;
+      top: 5%;
+    }
+
+    &__links {
+      display: none;
     }
   }
 }

@@ -8,7 +8,7 @@ export interface ThemeState {
 }
 
 const initState: ThemeState = {
-  theme: Theme.Light 
+  theme: Theme.Dark 
 };
 
 const _themeReducer = createReducer(
