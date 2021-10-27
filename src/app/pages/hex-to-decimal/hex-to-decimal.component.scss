@@ -20,7 +20,14 @@
   box-shadow: 5px 5px 4em 1px rgb(0 0 0 / 15%);
   -webkit-box-shadow: 5px 5px 4em 5px rgb(0 0 0 / 15%);
   
+  &--light {
+    box-shadow: 5px 5px 4em 1px rgb(0 0 0 / 15%);
+    -webkit-box-shadow: 5px 5px 4em 5px rgb(0 0 0 / 15%);
+  }
+
   &--dark {
+    box-shadow: 5px 5px 4em 1px rgb(0 0 0 / 35%);
+    -webkit-box-shadow: 5px 5px 4em 5px rgb(0 0 0 / 50%);
     background: var(--dark-theme-bg-color);
   }
 

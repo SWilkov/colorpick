@@ -1,4 +1,5 @@
-<div class="hexdec" [class.hexrgba--dark]="(theme$ | async) === 'dark'">
+<div class="hexdec" [class.hexdec--dark]="(theme$ | async) === 'dark'"
+  [class.hexdec--light]="(theme$ | async) === 'light'">
   <div class="hexdec__container">
       <input #decimalInput placeholder="hexidecimal" [(ngModel)]="data"
         class="hexdec__input" 

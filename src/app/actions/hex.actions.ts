@@ -66,4 +66,18 @@ export const calculateDecimalValueOfHexadecimal = createAction(
   props<{payload: string[]}>()
 );
 
+//get binary
+export const calculateBinary = createAction(
+  '[HEXADECIMAL calculate binary]',
+  props<{input: string}>()
+);
 
+export const calculateBinarySuccess = createAction(
+  '[HEXADECIMAL calculate binary success]',
+  props<{payload: string[]}>()
+);
+
+export const calculateBinaryFailed = createAction(
+  '[HEXADECIMAL calculate binary]',
+  props<{payload: Error}>()
+);

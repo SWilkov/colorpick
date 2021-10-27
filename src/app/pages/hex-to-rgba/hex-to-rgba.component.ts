@@ -91,12 +91,7 @@ export class HexToRgbaComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   ngAfterViewInit(): void {
-    // setTimeout(() => {
-    //   if (!this.isRising) {
-    //     this.isRising = true;
-    //   }
-    // }, 500);
-
+   
     setTimeout(() => {
       this.store.dispatch(balloonActions.toggle());
     }, 500);

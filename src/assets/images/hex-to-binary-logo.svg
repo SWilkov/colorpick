@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="60" viewBox="0 0 200 60">
+  <defs>
+    <style>
+      .cls-1 {
+        font-size: 40px;
+      }
+
+      .cls-1, .cls-2 {
+        fill: #fff;
+        font-family: Europa-Regular;
+      }
+
+      .cls-2 {
+        font-size: 36px;
+      }
+    </style>
+  </defs>
+  <text id="_" data-name="#" class="cls-1" x="30.167" y="44.333">#</text>
+  <text id="_-" data-name="-" class="cls-2" x="70" y="39.667">-</text>
+  <text id="_1010" data-name="1010" class="cls-2" x="98.75" y="44.25">1010</text>
+</svg>

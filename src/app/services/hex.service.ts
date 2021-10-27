@@ -134,5 +134,14 @@ export class HexService {
     return hexadecimals.map(x => x.reduce((a, b) => a + b, 0));
   }
 
-  
+  getBinarys(hex: string): string[] {
+    let arr = [...hex];
+
+    let binarys = arr.map(x => {
+      let hexadecimalObj = hexDomain.hexidecimals.find(h => h.symbol === x.toUpperCase());
+      return hexadecimalObj.binaryValue;
+    });
+
+    return binarys;
+  }
 }
