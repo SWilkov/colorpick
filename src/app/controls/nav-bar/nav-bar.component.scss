@@ -16,14 +16,25 @@
   }
 
   &__text {
-    fill-opacity: 0.75;
+    fill-opacity: 0.7;
     transition: fill-opacity 0.5s ease-in;
+    //transition: fill 0.2s ease-in-out;
     &--light {     
       fill: #b6c1c6;
     }
 
     &--dark {      
       fill: var(--default-theme-bg-color);
+    }
+    &--highlighted { 
+      fill-opacity: 1;
+    }
+  }
+
+  &__highlighted {
+    &--dark {
+      fill:#ffea00;
+      fill-opacity: 1;
     }
   }
 
@@ -38,6 +49,9 @@
     }
     &--blue {
       fill: #0c07f8;
+    }
+    &--highlighted {
+      fill-opacity: 1;
     }
   }
 
@@ -79,7 +93,7 @@
 
 .navbar__link:hover > .navbar__svg > .navbar__square, 
 .navbar__link:hover > .navbar__svg > .navbar__text {
-  fill-opacity: 1;
+  fill-opacity: 1;  
 }
 
 // @include respond-above(daddyshark) {

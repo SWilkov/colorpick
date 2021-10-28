@@ -8,6 +8,8 @@ import { HexService } from 'src/app/services/hex.service';
 import * as hexActions from '../../actions/hex.actions';
 import * as hexSelectors from '../../selectors/hex.selector';
 import * as themeSelectors from '../../selectors/theme.selector';
+import * as navigationActions from '../../actions/navigation.actions';
+import { Page } from 'src/app/models/page.enum';
 
 @Component({
   selector: 'cp-hex-to-decimal',
@@ -26,7 +28,8 @@ export class HexToDecimalComponent implements OnInit, AfterViewInit, OnDestroy {
   constructor(private store: Store<AppState>, private hexService: HexService) { }
 
   ngOnInit(): void {
-    this.theme$ = this.store.select(themeSelectors.selectTheme);    
+    this.theme$ = this.store.select(themeSelectors.selectTheme); 
+    this.store.dispatch(navigationActions.navigationChanged({ payload: Page.decimal }));   
   }
 
   ngAfterViewInit(): void {

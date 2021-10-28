@@ -7,6 +7,9 @@ import { AppState } from 'src/app/reducers';
 import * as hexActions from '../../actions/hex.actions';
 import * as hexSelectors from '../../selectors/hex.selector';
 import * as themeSelectors from '../../selectors/theme.selector';
+import * as navigationActions from '../../actions/navigation.actions';
+import { Page } from 'src/app/models/page.enum';
+
 @Component({
   selector: 'cp-hex-to-binary',
   templateUrl: './hex-to-binary.component.html',
@@ -35,7 +38,9 @@ export class HexToBinaryComponent implements OnInit, AfterViewInit, OnDestroy {
       if (hex) {        
         this.store.dispatch(hexActions.calculateBinary({input: hex}));        
       }
-    });    
+    });  
+    
+    this.store.dispatch(navigationActions.navigationChanged({ payload: Page.binary }));
   }
 
   ngAfterViewInit(): void {
