@@ -22,6 +22,7 @@ import { ThemeService } from './services/theme.service';
 import { ThemeEffects } from './effects/theme.effects';
 import { HexToDecimalComponent } from './pages/hex-to-decimal/hex-to-decimal.component';
 import { HexToBinaryComponent } from './pages/hex-to-binary/hex-to-binary.component';
+import { storageSyncReducer } from './reducers/storage-sync.reducer';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,7 @@ import { HexToBinaryComponent } from './pages/hex-to-binary/hex-to-binary.compon
     FormsModule,
     ControlsModule,    
     StoreModule.forRoot(reducers, {
-      metaReducers: metaReducers
+      metaReducers: [storageSyncReducer]
     }),
     EffectsModule.forRoot([
       HexEffects,
