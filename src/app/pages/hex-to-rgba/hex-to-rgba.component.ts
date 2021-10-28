@@ -15,6 +15,8 @@ import { Theme } from 'src/app/models/theme.enum';
 import * as themeSelectors from '../../selectors/theme.selector';
 import * as balloonSelectors from '../../selectors/balloon.selector';
 import * as balloonActions from '../../actions/balloon.actions';
+import * as navigationActions from '../../actions/navigation.actions';
+import { Page } from 'src/app/models/page.enum';
 
 @Component({
   selector: 'cp-hex-to-rgba',
@@ -74,6 +76,7 @@ export class HexToRgbaComponent implements OnInit, AfterViewInit, OnDestroy {
       }
     });    
     
+    this.store.dispatch(navigationActions.navigationChanged({ payload: Page.rgba }));
   }
 
   onHexadecimalChanged(text: string): void {    

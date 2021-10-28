@@ -7,6 +7,8 @@ import { AppState } from 'src/app/reducers';
 import * as hexSelectors from '../../selectors/hex.selector';
 import * as imageSelectors from '../../selectors/image.selector';
 import * as themeSelectors from '../../selectors/theme.selector';
+import * as navigationSelectors from '../../selectors/navigation.selector';
+import { Page } from 'src/app/models/page.enum';
 
 @Component({
   selector: 'cp-nav-bar',
@@ -17,6 +19,7 @@ export class NavBarComponent implements OnInit {
   rgba$: Observable<Rgba>;
   opacity$: Observable<number>;
   theme$: Observable<Theme>;
+  currentPage$: Observable<Page>;
   rgbaSubscription: Subscription;
   
   constructor(private store: Store<AppState>) { }
@@ -25,6 +28,7 @@ export class NavBarComponent implements OnInit {
     this.rgba$ = this.store.select(hexSelectors.selectRgba);
     this.opacity$ = this.store.select(imageSelectors.selectOpacity);
     this.theme$ = this.store.select(themeSelectors.selectTheme);
+    this.currentPage$ = this.store.select(navigationSelectors.selectCurrentPage);
   }
 
   getFriendlyRgba = (rgba: Rgba): string =>

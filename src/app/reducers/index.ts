@@ -14,13 +14,16 @@ import * as fromBalloon from './balloon.reducer';
 import * as fromLinks from './app-link.reducer';
 import * as fromTheme from './theme.reducer';
 import * as fromHamburger from './hamburger.reducer';
+import * as fromNavigation from '../reducers/navigation.reducer';
+
 export interface AppState {
   hexadecimal: fromHexadecimal.HexadecimalState,
   image: fromImage.ImageState,
   balloon: fromBalloon.BalloonState,
   appLink: fromLinks.AppLinkState,
   theme: fromTheme.ThemeState,
-  hamburger: fromHamburger.HamburgerState
+  hamburger: fromHamburger.HamburgerState,
+  navigation: fromNavigation.NavigationState
 }
 
 export const reducers: ActionReducerMap<AppState> = {
@@ -29,7 +32,8 @@ export const reducers: ActionReducerMap<AppState> = {
   balloon: fromBalloon.balloonReducer,
   appLink: fromLinks.appLinkReducer,
   theme: fromTheme.themeReducer,
-  hamburger: fromHamburger.hamburgerReducer
+  hamburger: fromHamburger.hamburgerReducer,
+  navigation: fromNavigation.navigationReducer
 };
 
 export const metaReducers: MetaReducer<AppState>[] = !environment.production ? [] : [];
