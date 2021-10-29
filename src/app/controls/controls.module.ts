@@ -12,6 +12,7 @@ import { RgbaViewerComponent } from './rgba-viewer/rgba-viewer.component';
 import { ToggleDarkModeComponent } from './toggle-dark-mode/toggle-dark-mode.component';
 import { HamburgerButtonComponent } from './hamburger-button/hamburger-button.component';
 import { MobileMenuComponent } from './mobile-menu/mobile-menu.component';
+import { ToggleLightModeComponent } from './toggle-light-mode/toggle-light-mode.component';
 
 
 
@@ -26,6 +27,7 @@ import { MobileMenuComponent } from './mobile-menu/mobile-menu.component';
     ToggleDarkModeComponent,
     HamburgerButtonComponent,
     MobileMenuComponent,
+    ToggleLightModeComponent,
     
   ],
   imports: [
@@ -40,6 +42,7 @@ import { MobileMenuComponent } from './mobile-menu/mobile-menu.component';
     ClearButtonComponent,
     RgbaViewerComponent,
     ToggleDarkModeComponent,
+    ToggleLightModeComponent,
     HamburgerButtonComponent,
     MobileMenuComponent
   ],
