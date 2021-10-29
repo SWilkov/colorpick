@@ -16,7 +16,7 @@ import { Page } from 'src/app/models/page.enum';
   styleUrls: ['./hex-to-binary.component.scss']
 })
 export class HexToBinaryComponent implements OnInit, AfterViewInit, OnDestroy {
-  @ViewChild('hexInput', {static: true}) hexInput: ElementRef;
+  @ViewChild('hexInput', {static: true}) hexInput: ElementRef<HTMLElement>;
 
   theme$: Observable<Theme>;
   binaryValue$: Observable<string>;
@@ -55,6 +55,8 @@ export class HexToBinaryComponent implements OnInit, AfterViewInit, OnDestroy {
 
           this.store.dispatch(hexActions.calculateBinary({ input: this.data }));
         });
+
+      this.hexInput.nativeElement.focus();
   }
   
   ngOnDestroy(): void {

@@ -15,7 +15,6 @@
 .minbtn {
   
   display: flex;
-
   align-items: center;
   justify-content: space-evenly;
 
@@ -30,8 +29,11 @@
     box-sizing: border-box;
     color: rgb(72, 73, 78);
     background: #ffffff; 
-    
+    padding: var(--padding-input-standard);
+    border-radius: 5px;
+
     &--dark {
+      border: 1px solid var(--color-border-standard);      
       color: var(--default-theme-bg-color);
       background: var(--dark-theme-bg-color);
     }
@@ -44,7 +46,8 @@
     transition: all 0.1s ease-in-out;
 
     &:focus {
-      border-bottom: 1px solid #ddd;
+      border-color: var(--color-border-focus);      
+      box-shadow: var(--shadow-border-focus);
     }    
   }
 }

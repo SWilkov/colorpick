@@ -1,13 +1,20 @@
 <div class="hexdec" [class.hexdec--dark]="(theme$ | async) === 'dark'"
   [class.hexdec--light]="(theme$ | async) === 'light'">
   <div class="hexdec__container">
+    <div class="hexdec__top">
       <input #decimalInput placeholder="hexidecimal" [(ngModel)]="data"
         class="hexdec__input" 
         [class.hexdec__input--dark]="(theme$ | async) === 'dark'"
-        [class.hexdec__input--light]="(theme$ | async) === 'light'">        
-      <input class="hexdec__input" placeholder="decimal" [value]="decimalValue"
-        [class.hexdec__input--dark]="(theme$ | async) === 'dark'"
-        [class.hexdec__input--light]="(theme$ | async) === 'light'">
+        [class.hexdec__input--light]="(theme$ | async) === 'light'">       
+        
+          <cp-clear-button *ngIf="data" 
+            (clearEvent)="onClearText($event)"></cp-clear-button>
+        
+      </div>
+      <input class="hexdec__readonly" placeholder="decimal" [value]="decimalValue" readonly
+        [class.hexdec__readonly--dark]="(theme$ | async) === 'dark'"
+        [class.hexdec__readonly--light]="(theme$ | async) === 'light'">
+    
   </div>
 </div>
 

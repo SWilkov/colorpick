@@ -53,6 +53,14 @@ export class HexToDecimalComponent implements OnInit, AfterViewInit, OnDestroy {
             this.decimalValue = "Sorry invalid Hexadecimal!"
           }
         });
+
+        this.decimalInput.nativeElement.focus();
+  }
+
+  onClearText(input: any): void { 
+    this.data = '';
+    this.decimalValue = '';
+    this.decimalInput.nativeElement.focus();
   }
   
   ngOnDestroy(): void {
