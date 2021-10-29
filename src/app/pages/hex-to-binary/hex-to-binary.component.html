@@ -8,8 +8,8 @@
         [class.hexbin__input--dark]="(theme$ | async) === 'dark'"
         [class.hexbin__input--light]="(theme$ | async) === 'light'">        
       <textarea class="hexbin__textarea" placeholder="binary" [value]="binaryValue$ | async"
-        [class.hexbin__input--dark]="(theme$ | async) === 'dark'"
-        [class.hexbin__input--light]="(theme$ | async) === 'light'"></textarea>
+        [class.hexbin__textarea--dark]="(theme$ | async) === 'dark'"
+        [class.hexbin__textarea--light]="(theme$ | async) === 'light'" readonly></textarea>
   </div>
 </div>
 
