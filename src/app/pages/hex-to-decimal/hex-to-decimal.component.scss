@@ -130,7 +130,7 @@
       align-items: center;
     }
 
-    &__input {
+    &__input, &__readonly {
       font-size: var(--input-font-size-bs);
     }
 
@@ -142,7 +142,7 @@
 
 @include respond-below(tinyshark) {
   .hexdec {
-    &__input {
+    &__input, &__readonly {
       font-size: var(--input-font-size-ts);
     }
   }

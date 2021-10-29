@@ -129,9 +129,13 @@
       align-items: center;
     }
 
-    &__input {
+    &__input, &__textarea {
       font-size: var(--input-font-size-bs);
     }
+
+    &__textarea {
+      height: 140px;
+     }
 
     &__decimal {
       width: 100%;
@@ -141,8 +145,11 @@
 
 @include respond-below(tinyshark) {
   .hexbin {
-    &__input {
+    &__input, &__textarea {
       font-size: var(--input-font-size-ts);
     }
+    &__textarea {
+      height: 125px;
+     }
   }
 }
