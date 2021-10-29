@@ -9,7 +9,8 @@ import * as hexSelectors from '../../selectors/hex.selector';
 import * as themeSelectors from '../../selectors/theme.selector';
 import * as navigationActions from '../../actions/navigation.actions';
 import { Page } from 'src/app/models/page.enum';
-
+import * as balloonSelectors from '../../selectors/balloon.selector';
+import { isRising } from 'src/app/reducers/balloon.reducer';
 @Component({
   selector: 'cp-hex-to-binary',
   templateUrl: './hex-to-binary.component.html',
@@ -21,6 +22,7 @@ export class HexToBinaryComponent implements OnInit, AfterViewInit, OnDestroy {
   theme$: Observable<Theme>;
   binaryValue$: Observable<string>;
   validatedHex$: Observable<string>;
+  isRising$: Observable<boolean>;
 
   validatedHexSubscription: Subscription;
   inputKeyUpSubscription: Subscription;
@@ -33,6 +35,7 @@ export class HexToBinaryComponent implements OnInit, AfterViewInit, OnDestroy {
     this.binaryValue$ = this.store.select(hexSelectors.selectBinary);
     this.validatedHex$ = this.store.select(hexSelectors.selectValidatedHexadecimal);
     this.theme$ = this.store.select(themeSelectors.selectTheme);
+    this.isRising$ = this.store.select(balloonSelectors.selectIsRising);
 
     this.validatedHexSubscription = this.validatedHex$.subscribe(hex => {
       if (hex) {        

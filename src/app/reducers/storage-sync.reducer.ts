@@ -10,7 +10,10 @@ export function storageSyncReducer(reducer: ActionReducer<AppState>) {
       },
       {
         stateKey: 'hexadecimal',
-        excludeKeys: ['error']
+        excludeKeys: ['error', 'binaryValue']
+      },
+      {
+        stateKey: 'balloon'
       }
     ],
     rehydrate: true,

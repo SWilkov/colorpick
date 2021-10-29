@@ -97,8 +97,18 @@
     }
   }
 
-  &__decimal {
-
+  &__balloon {
+    position: absolute;
+    right: 25px;
+    &--fallen {
+      bottom: 50px;
+      opacity: 0.25;
+    }
+    &--risen {
+      bottom: 245px;
+      opacity: 1;
+    }
+    z-index: 1000;
   }
 }
 
