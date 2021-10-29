@@ -32,9 +32,13 @@
   }
 
   &__highlighted {
+    fill-opacity: 1;
+
     &--dark {
-      fill:#ffea00;
-      fill-opacity: 1;
+      fill:var(--color-highlight-dark);      
+    }
+    &--light {
+      fill: var(--color-highlight-light);
     }
   }
 

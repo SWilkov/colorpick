@@ -1,6 +1,7 @@
 <div class="minbtn">
   <input #textInput type="text" class="minbtn__input" 
-    [class.minbtn__input--dark]="(theme$ | async) === 'dark'"    
+    [class.minbtn__input--dark]="(theme$ | async) === 'dark'"
+    [class.minbtn__input--light]="(theme$ | async) === 'light'"    
     placeholder="{{placeholderText}}" [(ngModel)]="searchText"> 
   <cp-clear-button *ngIf="searchText" 
       (clearEvent)="onClearText($event)"></cp-clear-button> 

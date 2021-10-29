@@ -20,11 +20,15 @@ export class HexService {
   }
 
   removeHash(input: string): string {
-    let output = this.startsWithHash(input.trim()) ? 
-                    input.trim().substring(1, input.length).trim() :
-                    input.trim();
+    if (input && input.length) {
+      let output = this.startsWithHash(input.trim()) ? 
+                      input.trim().substring(1, input.length).trim() :
+                      input.trim();
 
-    return this.startsWithHash(output) ? this.removeHash(output) : output;
+      return this.startsWithHash(output) ? this.removeHash(output) : output;
+    } else {
+      return '';
+    }
   }
   
   getRgbType(input: string): RgbType {

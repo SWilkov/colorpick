@@ -10,7 +10,7 @@ import * as hexSelectors from '../../selectors/hex.selector';
 import * as themeSelectors from '../../selectors/theme.selector';
 import * as navigationActions from '../../actions/navigation.actions';
 import { Page } from 'src/app/models/page.enum';
-
+import * as balloonSelectors from '../../selectors/balloon.selector';
 @Component({
   selector: 'cp-hex-to-decimal',
   templateUrl: './hex-to-decimal.component.html',
@@ -20,6 +20,7 @@ export class HexToDecimalComponent implements OnInit, AfterViewInit, OnDestroy {
   @ViewChild('decimalInput', {static: true}) decimalInput: ElementRef<HTMLElement>;
   
   theme$: Observable<Theme>;
+  isRising$: Observable<boolean>;
   decimalValue: string = "";
   data: string; 
 
@@ -29,7 +30,9 @@ export class HexToDecimalComponent implements OnInit, AfterViewInit, OnDestroy {
 
   ngOnInit(): void {
     this.theme$ = this.store.select(themeSelectors.selectTheme); 
-    this.store.dispatch(navigationActions.navigationChanged({ payload: Page.decimal }));   
+    this.isRising$ = this.store.select(balloonSelectors.selectIsRising);
+    
+    this.store.dispatch(navigationActions.navigationChanged({ payload: Page.decimal }));      
   }
 
   ngAfterViewInit(): void {

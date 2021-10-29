@@ -15,6 +15,12 @@
         [class.hexdec__readonly--dark]="(theme$ | async) === 'dark'"
         [class.hexdec__readonly--light]="(theme$ | async) === 'light'">
     
+        <div class="hexdec__balloon"
+          [class.hexdec__balloon--risen]="(isRising$ | async)"
+          [class.hexdec__balloon--fallen]="!(isRising$ | async)">
+          <cp-balloon></cp-balloon>       
+      </div>
   </div>
+  
 </div>
 

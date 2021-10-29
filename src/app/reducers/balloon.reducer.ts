@@ -15,6 +15,11 @@ const _balloonReducer = createReducer(
     (state) => ({
       ...state,
       isRising: !state.isRising
+    })),
+  on(balloonActions.takeOff,
+    (state) => ({
+      ...state,
+      isRising: true
     }))
 );
 
