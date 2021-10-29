@@ -7,6 +7,10 @@ export function storageSyncReducer(reducer: ActionReducer<AppState>) {
     features: [
       {
         stateKey: 'theme'
+      },
+      {
+        stateKey: 'hexadecimal',
+        excludeKeys: ['error']
       }
     ],
     rehydrate: true,
