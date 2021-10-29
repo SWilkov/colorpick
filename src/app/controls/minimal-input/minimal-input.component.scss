@@ -65,15 +65,6 @@
 
 @include respond-below(mummyshark) {
   .minbtn {
-    
-    &__input {
-      font-size: 2em;
-    }
-  }
-}
-
-@include respond-below(mummyshark) {
-  .minbtn {
     //max-width: 400px;
 
     &__input {
