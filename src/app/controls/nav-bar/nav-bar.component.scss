@@ -153,6 +153,8 @@
 
 @include respond-below(babyshark) {
   .navbar {
-    
+    &__toggle-dark, &__toggle-light {
+      display: none;
+    }
   }
 }

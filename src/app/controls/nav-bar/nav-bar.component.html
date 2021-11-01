@@ -100,9 +100,10 @@
         </svg>          
       </a>
     </div>
-    <cp-toggle-dark-mode *ngIf="(theme$ | async) === 'dark';else lightMode"></cp-toggle-dark-mode>
+    <cp-toggle-dark-mode *ngIf="(theme$ | async) === 'dark';else lightMode"
+      class="navbar__toggle-dark"></cp-toggle-dark-mode>
     <ng-template #lightMode>
-      <cp-toggle-light-mode></cp-toggle-light-mode> 
+      <cp-toggle-light-mode class="navbar__toggle-light"></cp-toggle-light-mode> 
     </ng-template>
 
     <div class="navbar__hamburger">

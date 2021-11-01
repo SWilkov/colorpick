@@ -21,7 +21,7 @@
   &__details {
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-evenly;
     padding: 0.5em 0;    
   }
 
@@ -69,6 +69,14 @@
     &__bg {
       width: 1200px;
       height: 154px;
+    }
+  }
+}
+
+@include respond-above(babyshark) {
+  .footer {
+    &__toggle {
+      display: none;
     }
   }
 }
