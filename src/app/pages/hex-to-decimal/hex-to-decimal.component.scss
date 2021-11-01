@@ -55,7 +55,8 @@
     background: #ffffff; 
     padding: var(--padding-input-standard);    
         
-    &--dark {           
+    &--dark { 
+      border-color: var(--color-border-standard-light);          
       color: var(--default-theme-bg-color);
       background: var(--dark-theme-bg-color);
     }
@@ -132,11 +133,15 @@
 
     &__input, &__readonly {
       font-size: var(--input-font-size-bs);
-    }
+    }    
 
     &__decimal {
       width: 100%;
     }
+  }
+
+  .hexdec__balloon {
+    display: none;
   }
 }
 

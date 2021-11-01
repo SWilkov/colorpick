@@ -29,5 +29,12 @@
           <img [src]="getLogoUrl(l.logo, (theme$ | async))" class="footer__logo"> 
         </a>
       </nav>
+
+      <div class="footer__toggle">
+        <cp-toggle-dark-mode *ngIf="(theme$ | async) === 'dark';else lightMode"></cp-toggle-dark-mode>
+        <ng-template #lightMode>
+          <cp-toggle-light-mode></cp-toggle-light-mode> 
+        </ng-template>
+      </div>
     </section>
 </div>

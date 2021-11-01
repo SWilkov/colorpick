@@ -1,6 +1,7 @@
 <div class="navbar" [class.navbar--light]="(theme$ | async) === 'light'"
 [class.navbar--dark]="(theme$ | async) === 'dark'">
   <div class="navbar__container"> 
+    <a href="/hex-to-rgba">
     <svg xmlns="http://www.w3.org/2000/svg" width="199" height="50" viewBox="0 0 199 50">
       <defs>
         <style>
@@ -28,7 +29,7 @@
         [ngStyle]="{ 'fill': getFriendlyRgba(rgba), 'fill-opacity': (opacity$ | async) }"
         id="Rectangle_1_copy" data-name="Rectangle 1 copy" class="cls-3" d="M173.3,12.963h13.663L170.089,32.407h-5.626Z"/>
     </svg> 
-
+    </a>
     <div class="navbar__links">     
       <a href="/hex-to-rgba" class="navbar__link">
         <svg xmlns="http://www.w3.org/2000/svg" class="navbar__svg" viewBox="0 0 200 59">         
@@ -100,9 +101,10 @@
         </svg>          
       </a>
     </div>
-    <cp-toggle-dark-mode *ngIf="(theme$ | async) === 'dark';else lightMode"></cp-toggle-dark-mode>
+    <cp-toggle-dark-mode *ngIf="(theme$ | async) === 'dark';else lightMode"
+      class="navbar__toggle-dark"></cp-toggle-dark-mode>
     <ng-template #lightMode>
-      <cp-toggle-light-mode></cp-toggle-light-mode> 
+      <cp-toggle-light-mode class="navbar__toggle-light"></cp-toggle-light-mode> 
     </ng-template>
 
     <div class="navbar__hamburger">
