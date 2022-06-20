@@ -5,6 +5,7 @@ import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
 import { Theme } from 'src/app/models/theme.enum';
 import { AppState } from 'src/app/reducers';
 import * as themeSelectors from '../../selectors/theme.selector';
+import * as hexActions from '../../actions/hex.actions';
 @Component({
   selector: 'cp-minimal-input',
   templateUrl: './minimal-input.component.html',
@@ -45,12 +46,12 @@ export class MinimalInputComponent implements OnInit, AfterViewInit, OnDestroy {
       });
 
       this.input.nativeElement.focus(); 
-    }
-    
+    }    
   }  
 
   onClearText(data: any): void {
     this.searchText = '';
+    this.store.dispatch(hexActions.clearHexInput());
     this.input.nativeElement.focus();
   }
 

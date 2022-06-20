@@ -17,6 +17,44 @@
   justify-content: center;
   border-radius: 12px;
   padding: 1em 2em;  
+  &__btns {
+    display: flex;
+    align-items: center;
+  }
+  &__clear {
+    width: 32px;
+    height: 32px;
+    opacity: 0.7;
+    margin-left: 20px;
+
+    &--light {
+      background: var(--default-theme-bg-color);
+      color: var(--color-text-light);
+    }
+
+    &--dark {           
+      color: var(--color-text-dark);
+      background: var(--dark-theme-bg-color);
+    }
+
+    &:hover {
+      opacity: 1;
+    }
+
+    &::before, &:after {
+      position: absolute;
+      content: ' ';
+      height: 33px;
+      width: 2px;
+      background-color: var(--color-text-dark);
+    }
+    &:before {
+      transform: rotate(45deg);
+    }
+    &:after {
+      transform: rotate(-45deg);
+    }
+  }
 
   &--light {
     box-shadow: 5px 5px 4em 1px rgb(0 0 0 / 15%);

@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="220" height="54" viewBox="0 0 220 54">
+  <defs>
+    <style>
+      .cls-1, .cls-4 {
+        font-size: 36px;
+        fill: #9ba1a4;
+      }
+
+      .cls-1 {
+        font-family: Europa-Regular;
+      }
+
+      .cls-2 {
+        fill: #ffea00;
+      }
+
+      .cls-2, .cls-3 {
+        fill-rule: evenodd;
+      }
+
+      .cls-3 {
+        fill: #67fb05;
+      }
+
+      .cls-4 {
+        font-family: Europa-Light;
+        font-weight: 300;
+      }
+    </style>
+  </defs>
+  <text id="i" class="cls-1" transform="translate(10.939 36.801) scale(0.999 0.995)">i</text>
+  <path class="cls-2" d="M178.022,16.106h14.751L184.1,37h-6.074V16.106Z"/>
+  <path id="Rectangle_1_copy" data-name="Rectangle 1 copy" class="cls-3" d="M194.248,16.106H209L190.777,37H184.7Z"/>
+  <text id="love" class="cls-4" transform="translate(22.331 36.801) scale(0.999 0.995)">love</text>
+  <text id="sums" class="cls-1" transform="translate(91.682 36.602) scale(0.999 0.995)">sums</text>
+</svg>
