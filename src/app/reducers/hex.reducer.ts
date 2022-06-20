@@ -84,7 +84,12 @@ const _hexReducer = createReducer(
       ...state,
       calculating: false
     })),
-
+  on(hexActions.clearHexInput,
+    (state) => ({
+      ...state,
+      input: '',
+      validatedHexValue: ''
+    })),
   on(hexActions.calculateBinary,
     (state, {input}) => ({
       ...state,
@@ -96,6 +101,11 @@ const _hexReducer = createReducer(
       calculating: false,
       calculated: true,
       binaryValue: payload && payload.length > 0 ? payload.join('') : '' 
+    })),
+  on(hexActions.clearBinary, 
+    (state) => ({
+      ...state,
+      binaryValue: ''
     }))
 );
 

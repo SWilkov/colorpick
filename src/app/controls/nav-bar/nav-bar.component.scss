@@ -20,7 +20,7 @@
     transition: fill-opacity 0.5s ease-in;
     //transition: fill 0.2s ease-in-out;
     &--light {     
-      fill: #b6c1c6;
+      fill: #484b4c;
     }
 
     &--dark {      
@@ -71,7 +71,7 @@
   }
 
   &__links {
-    border: 2px solid rgba(10, 167, 230, 0.6); 
+    //border: 2px solid rgba(10, 167, 230, 0.6); 
     padding: 0 1em; 
     border-radius: 20px;
     display: flex;

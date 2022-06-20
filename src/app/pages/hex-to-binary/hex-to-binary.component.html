@@ -3,10 +3,16 @@
   <div class="hexbin__container">
     <!-- <cp-minimal-input [placeholderText]="'hexadecimal'" 
       (textChangedEvent)="onHexadecimalChanged($event)"></cp-minimal-input> -->
-      <input #hexInput placeholder="hexidecimal" [(ngModel)]="data"
-        class="hexbin__input" 
-        [class.hexbin__input--dark]="(theme$ | async) === 'dark'"
-        [class.hexbin__input--light]="(theme$ | async) === 'light'">        
+      <div class="hexbin__btns">
+        
+        <input #hexInput placeholder="hexidecimal" [(ngModel)]="data"
+          class="hexbin__input" 
+          [class.hexbin__input--dark]="(theme$ | async) === 'dark'"
+          [class.hexbin__input--light]="(theme$ | async) === 'light'">
+        
+        <cp-clear-button *ngIf="data" 
+          (clearEvent)="onClearText($event)"></cp-clear-button>                
+      </div>      
       <textarea class="hexbin__textarea" placeholder="binary" [value]="binaryValue$ | async"
         [class.hexbin__textarea--dark]="(theme$ | async) === 'dark'"
         [class.hexbin__textarea--light]="(theme$ | async) === 'light'" readonly></textarea>

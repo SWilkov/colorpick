@@ -17,6 +17,7 @@ import * as balloonSelectors from '../../selectors/balloon.selector';
 import * as balloonActions from '../../actions/balloon.actions';
 import * as navigationActions from '../../actions/navigation.actions';
 import { Page } from 'src/app/models/page.enum';
+import { Meta, Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'cp-hex-to-rgba',
@@ -54,9 +55,17 @@ export class HexToRgbaComponent implements OnInit, AfterViewInit, OnDestroy {
 
   //isRising: boolean = false;
   isRising$: Observable<boolean>;
-  constructor(private store: Store<AppState>) { }
+  constructor(private store: Store<AppState>,
+    private meta: Meta,
+    private title: Title) { }
 
   ngOnInit(): void {
+    this.title.setTitle('Convert Hexadecimal to rgba | ilovesums');
+    this.meta.updateTag({
+      name: 'description',
+      content: 'Hexadecimal to rgba (red, green, blue, alpha) calculator for free | ilovesums'
+    });
+
     this.rgba$ = this.store.select(hexSelectors.selectRgba);
     this.opacity$ = this.store.select(imageSelectors.selectOpacity);
     this.validatedHex$ = this.store.select(hexSelectors.selectValidatedHexadecimal);

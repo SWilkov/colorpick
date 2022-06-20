@@ -11,6 +11,7 @@ import * as navigationActions from '../../actions/navigation.actions';
 import { Page } from 'src/app/models/page.enum';
 import * as balloonSelectors from '../../selectors/balloon.selector';
 import { isRising } from 'src/app/reducers/balloon.reducer';
+import { Meta, Title } from '@angular/platform-browser';
 @Component({
   selector: 'cp-hex-to-binary',
   templateUrl: './hex-to-binary.component.html',
@@ -29,9 +30,16 @@ export class HexToBinaryComponent implements OnInit, AfterViewInit, OnDestroy {
 
   data: string; 
 
-  constructor(private store: Store<AppState>) { }
+  constructor(private store: Store<AppState>, private meta: Meta,
+    private title: Title) { }
 
   ngOnInit(): void {
+    this.title.setTitle('Convert Hexadecimal to binary | ilovesums');
+    this.meta.updateTag({
+      name: 'description',
+      content: 'Hexadecimal to binary calculator for free | ilovesums'
+    });
+
     this.binaryValue$ = this.store.select(hexSelectors.selectBinary);
     this.validatedHex$ = this.store.select(hexSelectors.selectValidatedHexadecimal);
     this.theme$ = this.store.select(themeSelectors.selectTheme);
@@ -54,12 +62,16 @@ export class HexToBinaryComponent implements OnInit, AfterViewInit, OnDestroy {
           distinctUntilChanged()        
         )
         .subscribe(input => {
-          console.log(this.data);
-
           this.store.dispatch(hexActions.calculateBinary({ input: this.data }));
         });
 
       this.hexInput.nativeElement.focus();
+  }
+
+  onClearText(input: any): void { 
+    this.data = '';
+    //this.store.dispatch(hexActions.clearBinary());
+    this.hexInput.nativeElement.focus();
   }
   
   ngOnDestroy(): void {

@@ -11,6 +11,7 @@ import * as themeSelectors from '../../selectors/theme.selector';
 import * as navigationActions from '../../actions/navigation.actions';
 import { Page } from 'src/app/models/page.enum';
 import * as balloonSelectors from '../../selectors/balloon.selector';
+import { Meta, Title } from '@angular/platform-browser';
 @Component({
   selector: 'cp-hex-to-decimal',
   templateUrl: './hex-to-decimal.component.html',
@@ -26,9 +27,17 @@ export class HexToDecimalComponent implements OnInit, AfterViewInit, OnDestroy {
 
   keyUpSubscription: Subscription;
 
-  constructor(private store: Store<AppState>, private hexService: HexService) { }
+  constructor(private store: Store<AppState>, private hexService: HexService,
+    private meta: Meta,
+    private title: Title) { }
 
   ngOnInit(): void {
+    this.title.setTitle('Convert Hexadecimal to decimal | ilovesums');
+    this.meta.updateTag({
+      name: 'description',
+      content: 'Hexadecimal to decimal calculator for free | ilovesums'
+    });
+
     this.theme$ = this.store.select(themeSelectors.selectTheme); 
     this.isRising$ = this.store.select(balloonSelectors.selectIsRising);
     
